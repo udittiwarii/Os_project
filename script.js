@@ -1,4 +1,3 @@
-// DOM Selectors
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
 const wifi = document.querySelector('.showwifi');
@@ -596,7 +595,7 @@ function showPanel() {
     loadRandomImage();
 }
 
-// Hide panel
+// Hide panelx
 function hidePanel() {
     panel.classList.add('opacity-0', 'translate-x-[-20px]', 'pointer-events-none');
     panel.classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto');
@@ -655,3 +654,202 @@ backButtons.forEach(btn => {
 
 // Select all your main start blocks (with ids like 11, 22, 33...)
 // Get all start blocks
+
+const tabsContainer = document.getElementById('tabs');
+const tabContentContainer = document.getElementById('tabContentContainer');
+const closeWindow = document.getElementById('closeWindow');
+
+let tabCount = 2; // Unique ID for new tabs
+let tabs = {};    // Store tab elements and content
+
+function createTab(id) {
+    const tabDiv = document.createElement('div');
+    tabDiv.className = 'tab';
+    tabDiv.dataset.id = id;
+    tabDiv.innerHTML = `Tab ${id} <small class="closetab">✕</small>`;
+    tabsContainer.insertBefore(tabDiv, tabsContainer.querySelector('.add-tab'));
+
+    const tabContent = document.createElement('div');
+    tabContent.className = 'tab-content';
+    tabContent.dataset.id = id;
+
+    let arr = [
+        "Radha Krishna",
+        "Mahakal",
+        "Jai Shree Ram",
+        "Sheryians",
+        "ChatGPT"
+    ];
+    let indexofarr = Math.floor(Math.random() * arr.length);
+    let WhatSearch = arr[indexofarr];
+
+    tabContent.innerHTML = `
+    <iframe src="https://www.bing.com/search?q=${encodeURIComponent(WhatSearch)}"></iframe>
+  `;
+
+    tabContentContainer.appendChild(tabContent);
+
+    tabs[id] = { tab: tabDiv, content: tabContent };
+
+    // ✅ Close handler
+    const closeBtn = tabDiv.querySelector('.closetab');
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeTab(id);
+    });
+
+    // ✅ Update tab label
+    updateTabTitle(tabDiv, WhatSearch);
+
+    switchTab(id);
+}
+
+function switchTab(id) {
+    tabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tabContentContainer.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+
+    if (tabs[id]) {
+        tabs[id].tab.classList.add('active');
+        tabs[id].content.style.display = 'flex';
+    }
+}
+
+function closeTab(id) {
+    tabs[id].tab.remove();
+    tabs[id].content.remove();
+    delete tabs[id];
+
+    const remaining = Object.keys(tabs);
+    if (remaining.length) {
+        switchTab(remaining[0]);
+    } else {
+        // ✅ If no tabs left → close the whole browser window
+        document.querySelector('.browser-window').style.display = 'none';
+    }
+}
+
+// Helper to update tab name only, keep ✕ intact
+function updateTabTitle(tabDiv, title) {
+    tabDiv.childNodes[0].nodeValue = title + ' ';
+}
+
+// Add first tab automatically
+createTab(1);
+
+// Tab switching
+tabsContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('tab') && !e.target.classList.contains('add-tab')) {
+        const id = e.target.dataset.id;
+        switchTab(id); ``
+    }
+});
+
+// New tab button
+tabsContainer.querySelector('.add-tab').addEventListener('click', () => {
+    createTab(tabCount++);
+});
+
+// Close the whole window manually
+closeWindow.addEventListener('click', () => {
+    document.querySelector('.browser-window').style.display = 'none';
+});
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Try to block F12, Ctrl+Shift+I, Ctrl+U
+const desktop = document.querySelector('.desktop');
+const context = document.querySelector('.context-menu')
+const icons = document.querySelector(".icon")
+desktop.addEventListener('contextmenu', (e) => {
+    context.style.left = `${e.pageX}px`
+    context.style.top = `${e.pageY}px`
+    context.style.display = "block"
+});
+window.addEventListener('click', (e) => {
+    if (!e.target.context) {
+        context.style.display = "none"
+    }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const Refresh = document.querySelector('.Refresh');
+    Refresh.addEventListener('click', () => {
+        icons.style.opacity = 0
+
+        setTimeout(() => {
+            icons.style.opacity = 1
+        }, 500);
+    });
+});
+
+
+const group = document.querySelectorAll('.group');
+
+group.forEach(icon => {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    icon.addEventListener('mousedown', e => {
+        isDragging = true;
+        offsetX = e.clientX - icon.getBoundingClientRect().left;
+        offsetY = e.clientY - icon.getBoundingClientRect().top;
+        icon.style.cursor = 'grabbing';
+    });
+
+    icons.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+
+        const newLeft = e.clientX - offsetX;
+        const newTop = e.clientY - offsetY;
+
+        // Save current position
+        const oldLeft = icon.offsetLeft;
+        const oldTop = icon.offsetTop;
+
+        // Move temporarily
+        icon.style.left = `${newLeft}px`;
+        icon.style.top = `${newTop}px`;
+
+        let overlapping = false;
+        icons.forEach(other => {
+            if (other === icon) return;
+
+            const r1 = icon.getBoundingClientRect();
+            const r2 = other.getBoundingClientRect();
+
+            const isOverlap = !(r1.right < r2.left ||
+                r1.left > r2.right ||
+                r1.bottom < r2.top ||
+                r1.top > r2.bottom);
+            if (isOverlap) overlapping = true;
+        });
+
+        if (overlapping) {
+            // If overlapping, revert to old position
+            icon.style.left = `${oldLeft}px`;
+            icon.style.top = `${oldTop}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        icon.style.cursor = 'grab';
+    });
+
+
+});
+
+const chromeIcon = document.querySelector('.group');
+const chromeSection = document.querySelector('.chrome');
+const browserWindow = chromeSection.querySelector('.browser-window');
+const closeBtn = document.getElementById('closeWindow');
+
+chromeIcon.addEventListener('dblclick', () => {
+  chromeSection.style.display = 'flex'; 
+  browserWindow.style.display = 'flex'; 
+});
+
+closeBtn.addEventListener('click', () => {
+  browserWindow.style.display = 'none';
+  chromeSection.style.display = 'none';
+});

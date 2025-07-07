@@ -21,28 +21,28 @@
             <div>
                 <div class="w-screen h-screen bg-cover bg-center dark:bg-black ">
 
-                    <div
-                        class="desktop w-screen h-screen relative bg-[url('aneesh-matcha-ug0M3sLBgMM-unsplash.jpg')] bg-cover bg-center dark:bg-black">
+                    <div class="desktop  bg-[url('aneesh-matcha-ug0M3sLBgMM-unsplash.jpg')] bg-cover bg-center ">
 
                         <!-- Icons on Desktop -->
-                        <div
-                            class="grid h-full p-5 grid-rows-[repeat(auto-fill,minmax(50px,1fr))] gap-6 items-start justify-start">
-                            <div class="relative group">
-                                <img class="h-10 mx-auto cursor-pointer" src="chrome.png" alt="Chrome" />
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                    Chrome
-                                </div>
+                        <div class="icon">
+                            <div class="group " >
+                                <img id='chromeid' class="h-10 mx-auto cursor-pointer " src="chrome.png" alt="Chrome" />
+                                <div>Chrome</div>
                             </div>
-                            <div class="relative group">
+
+                            <div class="group vscodeid">
                                 <img class="h-10 mx-auto cursor-pointer" src="icons8-visual-studio-code-48.png"
                                     alt="VS Code" />
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                    VS Code
-                                </div>
+                                <div>VS Code</div>
                             </div>
+
+                            <div class="group clockid">
+                                <img class="h-10 mx-auto cursor-pointer" src="icons8-clock-48.png" alt="Clock" />
+                                <div>Clock</div>
+                            </div>
+                            
                         </div>
+
 
                         <!-- Full Focus Clock UI -->
                         <section
@@ -237,6 +237,27 @@
                         </section>
 
                     </div>
+                    <section class="chrome hiddentab">
+                        <div class="browser-window">
+                            <header class="top-bar">
+                                <div class="tabs" id="tabs">
+                                    <div class="tab active" data-id="0">browse</div>
+                                    <div class="tab add-tab">+</div>
+
+                                </div>
+                                <div class="window-controls">
+                                    <span>◻</span>
+                                    <span>🗕</span>
+                                    <span id="closeWindow">✕</span>
+                                </div>
+                            </header>
+
+                            <main id="tabContentContainer">
+                                <!-- Tab content gets added here -->
+                            </main>
+                        </div>
+
+                    </section>
                     <div
                         class="taskbar absolute bottom-0 left-0 w-full h-[8%] border-t bg-gradient-to-r from-slate-100 via-rose-100 to-indigo-100 dark:from-slate-800 dark:via-slate-900 dark:to-black flex justify-center items-center px-4">
                         <div class="items-start absolute left-2">
@@ -814,6 +835,18 @@
                 Up next: <span class="font-semibold">5 min break</span>
             </div>
 
+        </section>
+        <section class="context-menu">
+            <ul>
+                <li><i class="ri-gallery-view-2"></i></i> View</li>
+                <li><i class="ri-sort-desc"></i>Sort by</li>
+                <li class="Refresh"><i class="ri-reset-right-line"></i> Refresh</li>
+                <li><i class="ri-keyboard-line"></i>Sortcuts</li>
+                <hr>
+                <li><i class="ri-add-circle-line"></i>New</li>
+                <li><i class="ri-tools-fill"></i> settings</li>
+                <li><i class="ri-edit-2-line"></i> Personalize</li>
+            </ul>
         </section>
 
         </div>

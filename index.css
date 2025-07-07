@@ -11,6 +11,84 @@ body {
   font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
 }
 
+.desktop {
+  width: 100vw;
+  /* w-screen */
+  height: 100vh;
+  /* h-screen */
+  position: relative;
+  /* relative */
+  background-image: url('aneesh-matcha-ug0M3sLBgMM-unsplash.jpg');
+  /* bg-[url()] */
+  background-size: cover;
+  /* bg-cover */
+  background-position: center;
+  /* bg-center */
+  background-color: black;
+  /* fallback for dark mode, see below */
+}
+
+@media (prefers-color-scheme: dark) {
+  .desktop {
+    background-image: none;
+    /* remove image in dark mode if you want */
+    background-color: black;
+    /* dark:bg-black */
+  }
+}
+
+.icon {
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow:auto;
+  flex-wrap: wrap;
+  row-gap: 20px; 
+  position: absolute; 
+  width: 90%;
+  height: 90%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  position: relative; 
+}
+
+.group img {
+  height: 40px;
+  display: block;
+}
+
+.group img:active{
+  scale: 0.2;
+}
+
+.group div:last-child {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100%;
+  margin-bottom: 0.25rem;
+  display: none;
+  background: white;
+  color: black;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+.group:hover div:last-child {
+  display: block;
+}
+
+
 .container {
   background-image: url('../aneesh-matcha-ug0M3sLBgMM-unsplash.jpg');
   background-repeat: no-repeat;
@@ -334,6 +412,7 @@ input:checked+.toggle-track .toggle-thumb {
   color: #fff;
   border: none;
 }
+
 /* General list style */
 .general-list {
   display: flex;
@@ -372,3 +451,167 @@ input:checked+.toggle-track .toggle-thumb {
   background: #2563eb;
 }
 
+
+
+.chromefulmode {
+  width: 100%;
+  height: 92%;
+  position: absolute;
+  top: 0;
+}
+
+
+
+.chrome {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+}
+
+.browser-window {
+  background: #2f4f4f;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 90%;
+  max-width: 900px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  display: none;
+
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3f5f5f;
+  padding: 8px 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  background: #5f7f7f;
+  padding: 6px 12px;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #1f2f2f;
+}
+
+.window-controls span {
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+#tabContentContainer {
+  flex: 1;
+  background: #1f2f2f;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.search-bar {
+  display: flex;
+  background: #eee;
+  padding: 8px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 10px 16px;
+  margin-left: 8px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+}
+
+.closetab {
+  color: gray;
+  padding: 2px;
+}
+
+.closetab:active {
+  scale: 0.98;
+}
+
+
+.context-menu {
+  position: absolute;
+  display: none;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 220px;
+  padding: 4px 0;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.context-menu li:hover {
+  background: #e5f3ff;
+}
+
+.context-menu li i {
+  width: 16px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

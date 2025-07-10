@@ -25,7 +25,7 @@
 
                         <!-- Icons on Desktop -->
                         <div class="icon">
-                            <div class="group " >
+                            <div class="group chrome-icon ">
                                 <img id='chromeid' class="h-10 mx-auto cursor-pointer " src="chrome.png" alt="Chrome" />
                                 <div>Chrome</div>
                             </div>
@@ -40,150 +40,131 @@
                                 <img class="h-10 mx-auto cursor-pointer" src="icons8-clock-48.png" alt="Clock" />
                                 <div>Clock</div>
                             </div>
-                            
+
                         </div>
 
 
                         <!-- Full Focus Clock UI -->
-                        <section
-                            class="focus-ui text-gray-800 dark:text-gray-200 z-10 font-[Segoe UI] w-full bg-white dark:bg-gray-900 absolute top-0 h-[92%] hidden flex flex-col">
+                        <section class="focus-ui  halfscreen hiden">
                             <!-- 🔵 Title Bar -->
-                            <div
-                                class="flex items-center justify-between px-4 h-10 border-b text-sm bg-[#f9fafb] dark:bg-gray-800">
-                                <div class="flex items-center gap-2">
-                                    <img src="icons8-clock-48.png" alt="Clock Icon" class="w-4 h-4" />
-                                    <span class="font-semibold">Clock</span>
+                            <div class="title-bar">
+                                <div class="title-left">
+                                    <img src="icons8-clock-48.png" alt="Clock Icon" class="clock-icon" />
+                                    <span class="clock-title">Clock</span>
                                 </div>
-                                <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300">
-                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700 rounded px-1">−</button>
-                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700 rounded px-1">
+                                <div class="title-right">
+                                    <button class="btn">−</button>
+                                    <button class="btn hoversquare">
                                         <i class="ri-rectangle-line"></i>
+                                        <div class="snap-layout">
+                                            <div class="layout cover">
+                                                <div class="cell selected"></div>
+                                                <div class="cell"></div>
+                                                <div class="cell"></div>
+                                            </div>
+                                            <div class="layout">
+                                                <div class="cell selected"></div>
+                                                <div class="cell"></div>
+                                                <div class="cell"></div>
+                                            </div>
+                                            <div class="layout">
+                                                <div class="cell selected"></div>
+                                                <div class="cell"></div>
+                                                <div class="cell"></div>
+                                            </div>
+                                            <div class="layout">
+                                                <div class="cell selected"></div>
+                                                <div class="cell"></div>
+                                                <div class="cell"></div>
+                                            </div>
+
+                                        </div>
                                     </button>
-                                    <button
-                                        class="cancle hover:bg-red-600 text-black dark:text-white rounded px-1">✕</button>
+                                    <button class="btn cancle">✕</button>
                                 </div>
                             </div>
 
                             <!-- 🔵 Content -->
-                            <div class="flex flex-1 overflow-hidden">
-                                <!-- Sidebar: do not shrink -->
-                                <aside
-                                    class="w-64 flex-shrink-0 bg-white dark:bg-gray-900 shadow-md px-5 py-6 flex flex-col justify-between">
+                            <div class="content">
+                                <!-- Sidebar -->
+                                <aside class="sidebar">
                                     <div>
-                                        <h2 class="text-lg font-bold mb-6 dark:text-white">Clock</h2>
-                                        <nav class="space-y-4 text-sm">
-                                            <div class="font-semibold text-blue-600 dark:text-blue-400">Focus sessions
-                                            </div>
-                                            <div class="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                                                Timer</div>
-                                            <div class="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                                                Alarm</div>
-                                            <div class="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                                                Stopwatch</div>
-                                            <div class="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                                                World clock</div>
+                                        <h2 class="sidebar-title">Clock</h2>
+                                        <nav class="sidebar-nav">
+                                            <div class="nav-item active">Focus sessions</div>
+                                            <div class="nav-item">Timer</div>
+                                            <div class="nav-item">Alarm</div>
+                                            <div class="nav-item">Stopwatch</div>
+                                            <div class="nav-item">World clock</div>
                                         </nav>
                                     </div>
-                                    <div class="space-y-4 text-sm">
-                                        <div class="flex items-center gap-2">
-                                            <div
-                                                class="w-6 h-6 bg-gray-300 dark:bg-gray-700 rounded-full text-center text-xs dark:text-white">
-                                                ⌚</div>
-                                            <span class="dark:text-white">User</span>
+                                    <div class="sidebar-bottom">
+                                        <div class="user">
+                                            <div class="user-icon">⌚</div>
+                                            <span>User</span>
                                         </div>
-                                        <div
-                                            class="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer">
+                                        <div class="settings">
                                             <i class="ri-settings-3-line"></i> <span>Settings</span>
                                         </div>
                                     </div>
                                 </aside>
 
                                 <!-- Main Content -->
-                                <div class="flex-1 grid grid-cols-3 gap-6 p-6 overflow-auto">
+                                <div class="main-content">
                                     <!-- Focus Timer -->
-                                    <section class="col-span-1 bg-white dark:bg-gray-900 rounded-xl p-6 shadow">
-                                        <div class="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">Focus
-                                            period (1 of 2)</div>
-                                        <div class="w-full flex flex-col items-center mt-4">
-                                            <div class="relative w-40 h-40 flex items-center justify-center">
-                                                <svg class="w-full h-full">
+                                    <section class="focus-timer">
+                                        <div class="focus-timer-title">Focus period (1 of 2)</div>
+                                        <div class="focus-timer-body">
+                                            <div class="circle-container">
+                                                <svg class="circle-svg">
                                                     <circle cx="50%" cy="50%" r="65" stroke="#e2e8f0" stroke-width="8"
                                                         fill="none" />
                                                     <circle cx="50%" cy="50%" r="65" stroke="#3b82f6" stroke-width="8"
                                                         fill="none" stroke-dasharray="400" stroke-dashoffset="80"
                                                         stroke-linecap="round" />
                                                 </svg>
-                                                <div class="clocktimer absolute text-3xl font-semibold dark:text-white">
-                                                    18 min</div>
+                                                <div class="clocktimer">18 min</div>
                                             </div>
-                                            <div class="mt-4 flex gap-4">
-                                                <button
-                                                    class="text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-5 py-2 rounded-full text-sm">
-                                                    <i class="ri-pause-line text-lg"></i>
-                                                </button>
-                                                <button
-                                                    class="text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-5 py-2 rounded-full text-sm">
-                                                    <i class="ri-more-2-line text-lg"></i>
-                                                </button>
+                                            <div class="focus-timer-buttons">
+                                                <button class="circle-btn"><i class="ri-pause-line"></i></button>
+                                                <button class="circle-btn"><i class="ri-more-2-line"></i></button>
                                             </div>
-                                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Up next: 5 min
-                                                break</p>
+                                            <p class="focus-timer-next">Up next: 5 min break</p>
                                         </div>
                                     </section>
 
                                     <!-- Daily Progress -->
-                                    <section class="col-span-1 bg-white dark:bg-gray-900 rounded-xl p-6 shadow">
-                                        <h3 class="text-sm font-semibold text-gray-700 dark:text-white mb-3">Daily
-                                            progress</h3>
-                                        <div class="flex items-center gap-6">
-                                            <div class="relative w-28 h-28">
-                                                <svg class="w-full h-full">
-                                                    <circle cx="50%" cy="50%" r="45" stroke="#e5e7eb" stroke-width="8"
-                                                        fill="none" />
-                                                    <circle cx="50%" cy="50%" r="45" stroke="#10b981" stroke-width="8"
-                                                        fill="none" stroke-dasharray="300" stroke-dashoffset="240"
-                                                        stroke-linecap="round" />
-                                                </svg>
-                                                <div class="absolute inset-0 flex items-center justify-center">
-                                                    <div class="text-center">
-                                                        <div class="text-sm font-semibold dark:text-white">1</div>
-                                                        <div class="text-xs text-gray-500 dark:text-gray-400">hour</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-sm space-y-2 dark:text-gray-200">
-                                                <p>Yesterday: <span class="font-semibold">0 minutes</span></p>
-                                                <p>Completed: <span class="font-semibold">2 minutes</span></p>
-                                                <p>Streak: <span class="font-semibold">0 days</span></p>
+                                    <section class="daily-progress">
+                                        <h3 class="section-title">Daily progress</h3>
+                                        <div class="progress-body">
+                                            <div class="progress-info">
+                                                <p>Yesterday: <span class="bold">0 minutes</span></p>
+                                                <p>Completed: <span class="bold">2 minutes</span></p>
+                                                <p>Streak: <span class="bold">0 days</span></p>
                                             </div>
                                         </div>
                                     </section>
 
                                     <!-- Spotify -->
-                                    <section
-                                        class="col-span-1 bg-white dark:bg-gray-900 rounded-xl p-6 shadow flex flex-col justify-between">
+                                    <section class="spotify">
                                         <div>
-                                            <h3 class="text-sm font-semibold text-gray-700 dark:text-white mb-2">Spotify
-                                            </h3>
-                                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                                            <h3 class="section-title">Spotify</h3>
+                                            <p class="spotify-desc">
                                                 You need the Spotify app to enhance your focus sessions with music and
                                                 podcasts.
                                             </p>
                                         </div>
-                                        <a href="https://www.spotify.com/us/download/android/"
-                                            class="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded text-sm">Install
-                                            Spotify</a>
+                                        <a href="https://www.spotify.com/us/download/android/" class="spotify-btn">
+                                            Install Spotify
+                                        </a>
                                     </section>
 
                                     <!-- Task List -->
-                                    <section class="col-span-3 bg-white dark:bg-gray-900 rounded-xl p-6 shadow mt-4">
-                                        <h3 class="text-sm font-semibold text-gray-700 dark:text-white mb-3">Tasks</h3>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Add tasks and assign
-                                            them to focus sessions throughout your day.</p>
-                                        <button
-                                            class="text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 px-3 py-1 rounded text-sm hover:bg-blue-50 dark:hover:bg-blue-900">
-                                            + Add a task
-                                        </button>
+                                    <section class="task-list">
+                                        <h3 class="section-title">Tasks</h3>
+                                        <p class="task-desc">Add tasks and assign them to focus sessions throughout your
+                                            day.</p>
+                                        <button class="task-btn">+ Add a task</button>
                                     </section>
                                 </div>
                             </div>
@@ -235,539 +216,427 @@
                                 </div>
                             </div>
                         </section>
+                        <section class="chrome hiden">
+                            <div class="browser-window">
+                                <header class="top-bar">
+                                    <div class="tabs" id="tabs">
+                                        <div class="tab active" data-id="0">browse</div>
+                                        <div class="tab add-tab">+</div>
 
+                                    </div>
+                                    <div class="window-controls">
+                                        <span>◻</span>
+                                        <span>🗕</span>
+                                        <span id="closeWindow">✕</span>
+                                    </div>
+                                </header>
+
+                                <main id="tabContentContainer">
+                                    <!-- Tab content gets added here -->
+                                </main>
+                            </div>
+
+                        </section>
                     </div>
-                    <section class="chrome hiddentab">
-                        <div class="browser-window">
-                            <header class="top-bar">
-                                <div class="tabs" id="tabs">
-                                    <div class="tab active" data-id="0">browse</div>
-                                    <div class="tab add-tab">+</div>
-
-                                </div>
-                                <div class="window-controls">
-                                    <span>◻</span>
-                                    <span>🗕</span>
-                                    <span id="closeWindow">✕</span>
-                                </div>
-                            </header>
-
-                            <main id="tabContentContainer">
-                                <!-- Tab content gets added here -->
-                            </main>
-                        </div>
-
-                    </section>
+                    <!-- background: linear-gradient(to right, #f1f5f9, #ffe4e6, #c7d2fe); -->
+                    <!-- <div class="taskbar bg-gradient-right from- dark:from-slate-800 dark:text-white dark:via-slate-900 dark:to-black"> -->
                     <div
-                        class="taskbar absolute bottom-0 left-0 w-full h-[8%] border-t bg-gradient-to-r from-slate-100 via-rose-100 to-indigo-100 dark:from-slate-800 dark:via-slate-900 dark:to-black flex justify-center items-center px-4">
-                        <div class="items-start absolute left-2">
-                            <div class="weather-widget relative flex items-start p-2 text-gray-800 dark:text-gray-100">
-                                <div class="relative">
-                                    <img src="" alt="weather icon" class="weather-icon w-10 h-10 dark:brightness-90" />
-                                    <span
-                                        class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                        class="taskbar bg-gradient-to-r from-slate-100 via-rose-100 to-indigo-200 dark:from-slate-800 dark:via-slate-900 dark:to-black dark:text-white">
+                        <div class="weather-area">
+                            <div class="weather-widget">
+                                <div class="weather-icon-wrapper">
+                                    <img src="" alt="weather icon" class="weather-icon dark:brightness-90" />
+                                    <span class="weather-badge">2</span>
                                 </div>
-                                <div>
-                                    <div class="weather-temp text-sm font-semibold text-gray-800 dark:text-white">--°C
-                                    </div>
-                                    <div class="weather-condition text-xs text-gray-600 dark:text-gray-400">Loading...
-                                    </div>
+                                <div class="weather-info">
+                                    <div class="weather-temp dark:text-white">--°C</div>
+                                    <div class="weather-condition dark:text-white-400">Loading...</div>
                                 </div>
                             </div>
                         </div>
 
-
                         <!-- Start Menu + Pinned Icons -->
-                        <div class="flex gap-3 items-center">
+                        <div class="pinned-icons">
                             <!-- Start Menu Icon -->
-                            <div class="relative group">
-                                <div
-                                    class="clickmenu start windows w-8 h-8 grid grid-cols-2 grid-rows-2 gap-[2px] rounded-sm overflow-hidden cursor-pointer">
-                                    <div class="clickmenu w-full h-full bg-gradient-to-br from-[#3BA9F4] to-[#015CDA]">
-                                    </div>
-                                    <div class="clickmenu w-full h-full bg-gradient-to-br from-[#3BA9F4] to-[#015CDA]">
-                                    </div>
-                                    <div class="clickmenu w-full h-full bg-gradient-to-br from-[#3BA9F4] to-[#015CDA]">
-                                    </div>
-                                    <div class="clickmenu w-full h-full bg-gradient-to-br from-[#3BA9F4] to-[#015CDA]">
-                                    </div>
+                            <div class="clickmenu">
+                                <div class="start-menu">
+                                    <div class="start-tile"></div>
+                                    <div class="start-tile"></div>
+                                    <div class="start-tile"></div>
+                                    <div class="start-tile"></div>
                                 </div>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Start
-                                </div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Start</div>
                             </div>
 
                             <!-- Search -->
-                            <div class="relative group">
-                                <div
-                                    class="serach flex items-center gap-2 bg-white/70 px-4 py-1 rounded-2xl cursor-pointer dark:bg-gray-700/80">
-                                    <i class="ri-search-line text-gray-700 dark:text-gray-200"></i>
-                                    <small class="text-gray-700 dark:text-gray-200">Search</small>
+                            <div class="icon-group">
+                                <div class="search dark:bg-gray-700/80">
+                                    <i class="ri-search-line dark:text-gray-200"></i>
+                                    <small class="dark:text-gray-200">Search</small>
                                 </div>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Search
-                                </div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Search</div>
                             </div>
 
                             <!-- File Explorer -->
-                            <div class="relative group">
-                                <img class="start h-8 cursor-pointer" src="icons8-file-explorer-new-48.png" alt="">
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    File Explorer
-                                </div>
+                            <div class="icon-group">
+                                <img class="icon-img" src="icons8-file-explorer-new-48.png" alt="">
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">File Explorer</div>
                             </div>
 
                             <!-- Chrome -->
-                            <div class="relative group">
-                                <img class="start h-8 cursor-pointer" src="chrome.png" alt="">
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Chrome
-                                </div>
+                            <div class="icon-group">
+                                <img class="icon-img" src="chrome.png" alt="">
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Chrome</div>
                             </div>
 
                             <!-- VS Code -->
-                            <div class="relative group">
-                                <img class="start h-8 cursor-pointer" src="icons8-visual-studio-code-48.png" alt="">
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    VS Code
-                                </div>
+                            <div class="icon-group">
+                                <img class="icon-img" src="icons8-visual-studio-code-48.png" alt="">
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">VS Code</div>
                             </div>
                         </div>
 
-
                         <!-- System Icons & Clock -->
-                        <div class="flex gap-3 absolute right-5 items-center">
-                            <!-- More -->
-                            <div class="relative group">
-                                <i class="ri-arrow-up-wide-fill text-gray-700 dark:text-gray-200 cursor-pointer"></i>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    More
-                                </div>
+                        <div class="system-icons">
+                            <div class="icon-group">
+                                <i class="ri-arrow-up-wide-fill dark:text-gray-200"></i>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">More</div>
                             </div>
-
-                            <!-- Language -->
-                            <div class="relative group">
-                                <div class="start text-gray-600 dark:text-gray-200 text-center cursor-pointer">
+                            <div class="icon-group">
+                                <div class="language dark:text-gray-200">
                                     <div>ENG</div>
                                     <div>IN</div>
                                 </div>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Language
-                                </div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Language</div>
                             </div>
-
-                            <!-- Wi-Fi / Volume / Battery -->
-                            <div class="relative group">
-                                <div id="2"
-                                    class="showwifi start gap-2 text-gray-700 dark:text-gray-200 text-lg cursor-pointer">
-                                    <span class="changeconditionwifi">
-                                        <i class="ri-earth-line text-xl"></i>
-                                    </span>
+                            <div class="icon-group showwifi ">
+                                <div class="status-icons dark:text-gray-200">
+                                    <span class="changeconditionwifi"><i class="ri-earth-line"></i></span>
                                     <i class="ri-volume-up-line"></i>
-                                    <i class="ri-battery-fill mr-2"></i>
+                                    <i class="ri-battery-fill"></i>
                                 </div>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Wi-Fi / Volume / Battery
-                                </div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Wi-Fi / Volume / Battery</div>
                             </div>
-
-                            <!-- Date & Time -->
-                            <div class="clickshownnotification relative group">
-                                <div
-                                    class="start items-center gap-2 flex text-gray-700 dark:text-gray-200 cursor-pointer">
-                                    <div class="text-end text-sm">
-                                        <div class="text-[13px] time">23:07:00</div>
+                            <div class="icon-group  clickshownnotification ">
+                                <div class="datetime dark:text-gray-200 ">
+                                    <span>
+                                        <div class="time">23:07:00</div>
                                         <div class="date">21-06-2025</div>
-                                    </div>
-                                    <i class="ri-notification-snooze-line text-xl"></i>
+                                    </span>
+                                    <i class="ri-notification-snooze-line"></i>
                                 </div>
-                                <div
-                                    class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs rounded px-2 py-1 whitespace-nowrap dark:bg-gray-800 dark:text-gray-100">
-                                    Date & Time
-                                </div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Date & Time</div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
             <!-- WiFi Panel -->
-            <div
-                class="wifi z-50 opacity-0 border border-zinc-400 shadow rounded-2xl absolute bottom-20 right-6 shadow-lg transition-opacity duration-300 dark:bg-gray-900 dark:border-gray-700">
-                <div class="box h-[400px] w-[350px] rounded dark:bg-gray-900">
-                    <div class="elements grid grid-cols-3 m-2 gap-2 my-4 p-4 dark:bg-gray-900">
+            <div class="wifi dark:bg-gray-900 dark:border-gray-700 ">
+                <div class="box  dark:bg-gray-800">
+                    <div class="elements dark:bg-gray-900">
                         <!-- Wi-Fi -->
+                        <!-- ✅ Wi-Fi -->
                         <div class="relative group">
-                            <div id="bluecompletewifi"
-                                class="start bg-white dark:bg-gray-800 p-4 rounded grid grid-cols-2 cursor-pointer">
-                                <div id="11">
-                                    <i class="wifiicon text-black dark:text-white ri-wifi-line"></i>
-                                </div>
-                                <div id="1" class="text-center border-l border-gray-300 dark:border-gray-600">
-                                    <i class="ri-arrow-right-s-line dark:text-white"></i>
-                                </div>
+                            <div id="bluecompletewifi" class="start dark:bg-gray-800">
+
+                                <div id="11"> <i class="wifiicon ri-wifi-line dark:text-white"></i></div>
+                                <span id="1" class="ml-5 border-l-white hover:bg-gray-200"><i
+                                        class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Wi-Fi Settings</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">Wifi</div>
+                            <div class="heading font-segoe dark:text-gray-200">Wi-Fi</div>
                         </div>
 
-                        <!-- Bluetooth -->
+                        <!-- ✅ Bluetooth -->
                         <div class="relative group">
-                            <div id="bluecompleteblutooth"
-                                class="start bg-white dark:bg-gray-800 p-4 rounded grid grid-cols-2 cursor-pointer">
-                                <div id="22">
-                                    <i class="ri-bluetooth-line dark:text-white"></i>
-                                </div>
-                                <div id="2" class="text-center border-l border-gray-300 dark:border-gray-600">
-                                    <i class="ri-arrow-right-s-line dark:text-white"></i>
-                                </div>
+                            <div id="bluecompleteblutooth" class="start dark:bg-gray-800">
+                                <div id="22"><i class="ri-bluetooth-line dark:text-white"></i></div>
+                                <span id="2" class="ml-5 border-l-white hover:bg-gray-200"><i
+                                        class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Bluetooth Settings</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">Bluetooth
-                            </div>
+                            <div class="heading font-segoe dark:text-gray-200">Bluetooth</div>
                         </div>
+
+
 
                         <!-- Airplane Mode -->
                         <div class="relative group">
-                            <div id="33" class="start text-center bg-white dark:bg-gray-800 p-4 rounded cursor-pointer">
+                            <div id="33" class="start text-center dark:bg-gray-800 bg-white">
                                 <i class="ri-plane-line dark:text-white"></i>
+                                <div class="heading font-segoe dark:text-gray-200">Airplane Mode</div>
+
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Airplane Mode</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">Airplane
-                                Mode</div>
+                            <div class="tooltip dark:bg-gray-800">Airplane Mode</div>
                         </div>
 
                         <!-- Battery Saver -->
                         <div class="relative group">
-                            <div id="44"
-                                class="start text-center bg-white dark:bg-gray-800 p-4 rounded-2xl cursor-pointer">
+                            <div id="44" class="start text-center dark:bg-gray-800 bg-white">
                                 <i class="ri-battery-saver-line dark:text-white"></i>
+                                <div class=" heading font-segoe dark:text-gray-200">Energy saver</div>
+
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Battery Saver</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">Energy
-                                saver</div>
+                            <div class="tooltip dark:bg-gray-800">Battery Saver</div>
                         </div>
 
                         <!-- Night Mode -->
                         <div class="relative group">
-                            <div id="55"
-                                class="start text-center bg-white dark:bg-gray-800 p-4 rounded-2xl cursor-pointer">
+                            <div id="55" class="start text-center dark:bg-gray-800 bg-white">
                                 <span class="modeiconchange">
                                     <i class="ri-sun-line dark:text-white"></i>
+                                    <div class="heading font-segoe dark:text-gray-200">Night Mode</div>
+
                                 </span>
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Night Mode</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">Night Mode
-                            </div>
+                            <div class="tooltip dark:bg-gray-800">Night Mode</div>
                         </div>
 
                         <!-- Accessibility -->
                         <div class="relative group">
-                            <div id="66"
-                                class="start text-center bg-white dark:bg-gray-800 p-4 rounded-2xl cursor-pointer">
+                            <div id="66" class="start text-center dark:bg-gray-800 bg-white">
                                 <i class="ri-user-shared-line dark:text-white"></i>
+                                <div class=" heading font-segoe dark:text-gray-200">Accessibility</div>
+
                             </div>
-                            <div
-                                class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black dark:bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
-                                Accessibility</div>
-                            <div class="font-segoe text-center text-[11px] m-2 text-thin dark:text-gray-200">
-                                Accessibility</div>
+                            <div class="tooltip dark:bg-gray-800">Accessibility</div>
                         </div>
                     </div>
 
                     <!-- Sliders & Info -->
-                    <div
-                        class="border-t border-gray-300 dark:border-gray-700 p-4 w-[90%] font-[Segoe UI] mb-4 dark:bg-gray-900">
-                        <div class="flex items-center gap-4 mb-4">
-                            <i class="ri-sun-line text-xl text-gray-700 dark:text-gray-200"></i>
-                            <input type="range" min="50" max="150"
-                                class="brightness-controll w-full accent-blue-500 cursor-pointer" />
-                            <span class="brightness-hover text-sm text-gray-700 dark:text-gray-200">50%</span>
+                    <div class="sliders dark:bg-gray-900 dark:border-gray-700 mt-10">
+                        <div class="slider-row">
+                            <i class="ri-sun-line"></i>
+                            <input type="range" class="brightness-controll" min="50" max="150" />
+                            <span class="brightness-hover">50%</span>
                         </div>
-
-                        <div class="flex items-center gap-4 mb-4">
-                            <i class="ri-volume-up-line text-xl text-gray-700 dark:text-gray-200"></i>
-                            <input type="range" class="w-full accent-blue-500 cursor-pointer" />
+                        <div class="slider-row">
+                            <i class="ri-volume-up-line"></i>
+                            <input type="range" class="brightness-controll" />
                         </div>
-
-                        <div
-                            class="flex items-center justify-between border-t border-gray-300 dark:border-gray-700 pt-3 mt-3 text-sm text-gray-700 dark:text-gray-200">
-                            <div class="flex items-center gap-2">
-                                <i class="ri-battery-2-fill text-lg text-gray-700 dark:text-gray-200"></i>
+                        <div class="info-row">
+                            <div >
+                                <i class="ri-battery-2-fill"></i>
                                 <span>76%</span>
                             </div>
-                            <div
-                                class="flex items-center gap-2 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-gray-700 dark:hover:text-gray-200 transition">
-                                <i id="3" class="ri-settings-3-line text-lg"></i>
+                            <div class="settings-icon">
+                                <i id="3" class="ri-settings-3-line"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <section class="panel-section">
                 <div class="panels-container">
                     <!-- Wi-Fi Settings Panel -->
-                    <div id="panel-1"
-                        class="panel hidden bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-4 rounded-lg">
-                        <h2 class="panel-title flex items-center gap-2 text-lg font-semibold">
+                    <div id="panel-1" class="panel dark:bg-gray-900 dark:text-gray-100">
+                        <h2 class="panel-title">
                             <i class="backtowifi ri-arrow-left-s-line"></i> Wi-Fi Settings
                         </h2>
-
-                        <!-- Wi-Fi toggle switch -->
-                        <div class="wifi-toggle my-4 flex items-center justify-between">
-                            <span class="wifi-toggle-label">Wi-Fi Enabled</span>
+                        <div class="wifi-toggle">
+                            <span>Wi-Fi Enabled</span>
                             <label class="toggle-switch">
-                                <input type="checkbox" class="sr-only" id="wifionly">
-                                <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                    <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                <input type="checkbox" class="sr-only" id="wifionly" />
+                                <div class="toggle-track">
+                                    <div class="toggle-thumb"></div>
                                 </div>
                             </label>
                         </div>
-
-                        <hr class="border-t border-gray-300 dark:border-gray-600 pb-5" />
-
-                        <!-- Wi-Fi network list -->
-                        <div class="wifi-list space-y-3">
-                            <div
-                                class="wifi-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <hr />
+                        <div class="wifi-list">
+                            <div class="wifi-item">
                                 <div>
-                                    <p class="wifi-name font-semibold">Home Wi-Fi</p>
-                                    <p class="wifi-status text-sm text-gray-500 dark:text-gray-400">Connected, secured
-                                    </p>
+                                    <p class="wifi-name">Home Wi-Fi</p>
+                                    <p class="wifi-status dark:text-gray-400">Connected, secured</p>
                                 </div>
-                                <i class="ri-check-line wifi-icon text-green-600"></i>
+                                <i class="ri-check-line wifi-icon"></i>
                             </div>
-                            <div
-                                class="wifi-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <div class="wifi-item">
                                 <div>
-                                    <p class="wifi-name font-semibold">Office Network</p>
-                                    <p class="wifi-status text-sm text-gray-500 dark:text-gray-400">Secured</p>
+                                    <p class="wifi-name">Office Network</p>
+                                    <p class="wifi-status dark:text-gray-400">Secured</p>
                                 </div>
-                                <button
-                                    class="wifi-connect-btn text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Connect</button>
+                                <button class="wifi-connect-btn">Connect</button>
                             </div>
-                            <div
-                                class="wifi-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <div class="wifi-item">
                                 <div>
-                                    <p class="wifi-name font-semibold">Guest Wi-Fi</p>
-                                    <p class="wifi-status text-sm text-gray-500 dark:text-gray-400">Open</p>
+                                    <p class="wifi-name">Guest Wi-Fi</p>
+                                    <p class="wifi-status dark:text-gray-400">Open</p>
                                 </div>
-                                <button
-                                    class="wifi-connect-btn text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Connect</button>
+                                <button class="wifi-connect-btn">Connect</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Bluetooth Settings Panel -->
-                    <div id="panel-2"
-                        class="panel hidden bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-4 rounded-lg">
-                        <h2 class="panel-title flex items-center gap-2 text-lg font-semibold">
+                    <div id="panel-2" class="panel dark:bg-gray-900 dark:text-gray-100">
+                        <h2 class="panel-title">
                             <i class="backtowifi ri-arrow-left-s-line"></i> Bluetooth Settings
                         </h2>
-
-                        <!-- Bluetooth toggle switch -->
-                        <div class="wifi-toggle my-4 flex items-center justify-between">
-                            <span class="wifi-toggle-label">Bluetooth Enabled</span>
+                        <div class="wifi-toggle">
+                            <span>Bluetooth Enabled</span>
                             <label class="toggle-switch">
-                                <input type="checkbox" class="sr-only " id="bluetoothonly">
-                                <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                    <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                <input type="checkbox" class="sr-only" id="bluetoothonly" />
+                                <div class="toggle-track">
+                                    <div class="toggle-thumb"></div>
                                 </div>
                             </label>
                         </div>
-
-                        <hr class="border-t border-gray-300 dark:border-gray-600 pb-5" />
-
-                        <!-- Available Devices List -->
-                        <div class="bluetooth-list space-y-3">
-                            <div
-                                class="bluetooth-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <hr />
+                        <div class="bluetooth-list">
+                            <div class="bluetooth-item">
                                 <div>
-                                    <p class="bluetooth-name font-semibold">Headphones XYZ</p>
-                                    <p class="bluetooth-status text-sm text-gray-500 dark:text-gray-400">Paired</p>
+                                    <p class="bluetooth-name">Headphones XYZ</p>
+                                    <p class="bluetooth-status dark:text-gray-400">Paired</p>
                                 </div>
-                                <button
-                                    class="bluetooth-btn connected text-sm px-3 py-1 bg-green-600 text-white rounded">Connected</button>
+                                <button class="bluetooth-btn connected">Connected</button>
                             </div>
-                            <div
-                                class="bluetooth-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <div class="bluetooth-item">
                                 <div>
-                                    <p class="bluetooth-name font-semibold">Smartwatch 123</p>
-                                    <p class="bluetooth-status text-sm text-gray-500 dark:text-gray-400">Available</p>
+                                    <p class="bluetooth-name">Smartwatch 123</p>
+                                    <p class="bluetooth-status dark:text-gray-400">Available</p>
                                 </div>
-                                <button
-                                    class="bluetooth-btn text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Connect</button>
+                                <button class="bluetooth-btn">Connect</button>
                             </div>
-                            <div
-                                class="bluetooth-item flex justify-between items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <div class="bluetooth-item">
                                 <div>
-                                    <p class="bluetooth-name font-semibold">Car Audio</p>
-                                    <p class="bluetooth-status text-sm text-gray-500 dark:text-gray-400">Available</p>
+                                    <p class="bluetooth-name">Car Audio</p>
+                                    <p class="bluetooth-status dark:text-gray-400">Available</p>
                                 </div>
-                                <button
-                                    class="bluetooth-btn text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Connect</button>
+                                <button class="bluetooth-btn">Connect</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- General Settings Panel -->
-                    <div id="panel-3"
-                        class="panel hidden bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-4 rounded-lg">
-                        <h2 class="panel-title flex items-center gap-2 text-lg font-semibold">
+                    <div id="panel-3" class="panel dark:bg-gray-900 dark:text-gray-100">
+                        <h2 class="panel-title">
                             <i class="backtowifi ri-arrow-left-s-line"></i> General Settings
                         </h2>
-
-                        <!-- Modes List -->
-                        <div class="general-list space-y-4 my-4">
-                            <div class="general-item flex justify-between items-center">
-                                <span class="general-label">Dark Mode</span>
+                        <div class="general-list">
+                            <div class="general-item">
+                                <span>Dark Mode</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="darkModeToggle">
-                                    <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                        <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                    <input type="checkbox" class="sr-only" id="darkModeToggle" />
+                                    <div class="toggle-track">
+                                        <div class="toggle-thumb"></div>
                                     </div>
                                 </label>
                             </div>
-                            <div class="general-item flex justify-between items-center">
-                                <span class="general-label">Light Mode</span>
+                            <div class="general-item">
+                                <span>Light Mode</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="lightModeToggle">
-                                    <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                        <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                    <input type="checkbox" class="sr-only" id="lightModeToggle" />
+                                    <div class="toggle-track">
+                                        <div class="toggle-thumb"></div>
                                     </div>
                                 </label>
                             </div>
-                            <div class="general-item flex justify-between items-center">
-                                <span class="general-label">Study Mode</span>
+                            <div class="general-item">
+                                <span>Study Mode</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="studyModeToggle">
-                                    <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                        <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                    <input type="checkbox" class="sr-only" id="studyModeToggle" />
+                                    <div class="toggle-track">
+                                        <div class="toggle-thumb"></div>
                                     </div>
                                 </label>
                             </div>
-                            <div class="general-item flex justify-between items-center">
-                                <span class="general-label">Night Mode</span>
+                            <div class="general-item">
+                                <span>Night Mode</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="nightModeToggle">
-                                    <div class="toggle-track bg-gray-300 dark:bg-gray-700">
-                                        <div class="toggle-thumb bg-white dark:bg-gray-100"></div>
+                                    <input type="checkbox" class="sr-only" id="nightModeToggle" />
+                                    <div class="toggle-track">
+                                        <div class="toggle-thumb"></div>
                                     </div>
                                 </label>
                             </div>
                         </div>
-
-                        <!-- Random Wallpaper -->
                         <div class="random-wallpaper">
-                            <button
-                                class="random-wallpaper-btn px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Change
-                                Random Wallpaper</button>
+                            <button class="random-wallpaper-btn">Change Random Wallpaper</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-
-            <div
-                class="showmenu z-50 box border border-zinc-400 dark:border-zinc-700 rounded shadow absolute bottom-20 right-[32%] shadow-lg transition-opacity duration-300 bg-white dark:bg-gray-900">
-
-                <div class="h-[600px] w-[540px] rounded">
-                    <div
-                        class="serch w-[90%] mx-[5%] h-10 flex bg-white dark:bg-gray-800 items-center rounded-3xl my-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-6 text-blue-600 ml-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+            <div class="showmenu dark:border-zinc-700 dark:bg-gray-900">
+                <div class="showmenu-inner">
+                    <div class="serch dark:bg-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
                         </svg>
-                        <input
-                            class="z-999 outline-0 w-[80%] ml-6 text-black dark:text-gray-100 dark:bg-gray-800 placeholder:text-gray-500 dark:placeholder:text-gray-400"
-                            type="text" placeholder="Search for apps, Settings, and documents">
+                        <input class="search-input dark:text-gray-100 dark:bg-gray-800" type="text"
+                            placeholder="Search for apps, Settings, and documents">
                     </div>
                 </div>
             </div>
 
-            <!-- Notification Panel -->
-            <div
-                class="shownnotification absolute bottom-20 right-4 w-[360px] bg-white/80 dark:bg-gray-900/90 backdrop-blur-md shadow-xl rounded-xl border border-gray-300 dark:border-gray-700 p-4 space-y-4 text-gray-800 dark:text-gray-100 z-50">
 
+            <!-- Notification Panel -->
+            <div class="shownnotification   dark:bg-gray-900/90 dark:border-gray-700 dark:text-gray-100 ">
                 <!-- Header -->
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between show items-center">
                     <h2 class="text-sm font-semibold text-gray-700 dark:text-gray-100">Notifications</h2>
                     <i class="ri-expand-left-right-line text-blue-500 text-lg cursor-pointer"></i>
                 </div>
 
                 <!-- Notification Items -->
-                <div class="space-y-3 max-h-[250px] mb-4 overflow-y-auto pr-1">
-                    <div
-                        class="flex items-start gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition">
-                        <i class="ri-mail-line text-blue-500 text-xl mt-1"></i>
+                <div class="notification-items">
+                    <div class="notification-item hover:dark:bg-gray-800">
+                        <i class="ri-mail-line text-blue-500"></i>
                         <div>
-                            <p class="text-sm font-medium">New Email Received</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">You have a message from John.</p>
-                            <span class="text-[10px] text-gray-400 dark:text-gray-500">2 mins ago</span>
+                            <p>New Email Received</p>
+                            <p class="dark:text-gray-400">You have a message from John.</p>
+                            <span class="dark:text-gray-500">2 mins ago</span>
                         </div>
                     </div>
-                    <div
-                        class="flex items-start gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition">
-                        <i class="ri-chat-3-line text-green-500 text-xl mt-1"></i>
+
+                    <div class="notification-item hover:dark:bg-gray-800">
+                        <i class="ri-chat-3-line text-green-500"></i>
                         <div>
-                            <p class="text-sm font-medium">New Chat from Alice</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">“Are we still on for 5 PM?”</p>
-                            <span class="text-[10px] text-gray-400 dark:text-gray-500">10 mins ago</span>
+                            <p>New Chat from Alice</p>
+                            <p class="dark:text-gray-400">“Are we still on for 5 PM?”</p>
+                            <span class="dark:text-gray-500">10 mins ago</span>
                         </div>
                     </div>
-                    <div
-                        class="flex items-start gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition">
-                        <i class="ri-alert-line text-yellow-500 text-xl mt-1"></i>
+
+                    <div class="notification-item hover:dark:bg-gray-800">
+                        <i class="ri-alert-line text-yellow-500"></i>
                         <div>
-                            <p class="text-sm font-medium">System Update</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">A new update is available.</p>
-                            <span class="text-[10px] text-gray-400 dark:text-gray-500">1 hour ago</span>
+                            <p>System Update</p>
+                            <p class="dark:text-gray-400">A new update is available.</p>
+                            <span class="dark:text-gray-500">1 hour ago</span>
                         </div>
                     </div>
                 </div>
 
-                <hr class="border-t border-gray-200 dark:border-gray-700" />
+                <hr class="dark:border-gray-700" />
 
+                <!-- Header with month (small) -->
                 <div class="flex justify-between">
-                    <div id="Month-clen" class="text-gray-600 dark:text-gray-300 text-sm">Monday, 23 June</div>
-                    <div class="openclender bg-white/80 dark:bg-gray-800/80 px-2 py-1 active:scale-101 cursor-pointer">
-                        <i class="ri-arrow-up-s-line"></i>
+                    <div class="month-clen dark:text-gray-300">Monday, 23 June</div>
+                    <div class="openclender dark:bg-gray-800/80">
+                        <span class="claendar">
+                            <i class="ri-arrow-up-s-line"></i>
+                        </span>
                     </div>
                 </div>
 
-                <hr class="border-t border-gray-200 dark:border-gray-700" />
+                <hr class="dark:border-gray-700" />
 
-                <!-- Calendar -->
-                <div class="space-y-2 claendar hidden">
+                <!-- Calendar full view -->
+                <div class="calendar  hidden">
                     <div class="flex justify-between items-center">
-                        <div class="text-gray-600 dark:text-gray-300 text-sm">Monday, 23 June</div>
+                        <div id="month-name" class="dark:text-gray-300">Monday, 23 June</div>
                         <div class="space-x-2">
-                            <button id="prev-month"
-                                class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">&larr;</button>
-                            <button id="next-month"
-                                class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">&rarr;</button>
+                            <button id="prev-month" class="dark:text-gray-400 dark:hover:text-white">&larr;</button>
+                            <button id="next-month" class="dark:text-gray-400 dark:hover:text-white">&rarr;</button>
                         </div>
                     </div>
-                    <div class="grid grid-cols-7 text-xs font-semibold text-center text-gray-600 dark:text-gray-400">
+
+                    <div class="grid grid-cols-7 text-xs font-semibold text-center dark:text-gray-400">
                         <div>Su</div>
                         <div>Mo</div>
                         <div>Tu</div>
@@ -776,27 +645,28 @@
                         <div>Fr</div>
                         <div>Sa</div>
                     </div>
-                    <div id="calendar-days" class="grid grid-cols-7 text-sm text-center gap-1">
+
+                    <div id="calendar-days" class="days">
                         <!-- Injected with JS -->
                     </div>
                 </div>
 
                 <!-- Focus Session Controls -->
-                <div class="flex items-center justify-between gap-2 pt-2">
-                    <div
-                        class="flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm">
-                        <button class="dectimer text-gray-600 dark:text-gray-300 text-lg leading-none">-</button>
+                <div class="focus-controls">
+                    <div class="timer dark:border-gray-600">
+                        <button class="dectimer dark:text-gray-300">-</button>
                         <span class="timer-fix">30 mins</span>
-                        <button class="inctimer text-gray-600 dark:text-gray-300 text-lg leading-none">+</button>
+                        <button class="inctimer dark:text-gray-300">+</button>
                     </div>
-                    <button
-                        class="clickfocustoggle bg-gray-900 text-white rounded px-3 py-1 text-sm hover:bg-gray-800 transition">
+                    <button class="focus-button clickfocustoggle">
                         ▶ Focus
                     </button>
                 </div>
+
             </div>
 
         </div>
+
         <!-- clock -->
         <section
             class="focustoggle absolute top-[5%] right-[10%] w-[200px] bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-xl rounded-xl p-4 text-center text-gray-700 dark:text-gray-100 space-y-3">
@@ -848,6 +718,8 @@
                 <li><i class="ri-edit-2-line"></i> Personalize</li>
             </ul>
         </section>
+
+
 
         </div>
         <script src="script.js"></script>

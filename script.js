@@ -6,7 +6,7 @@ const showmenu = document.querySelector('.showmenu');
 const clickmenu = document.querySelectorAll('.clickmenu');
 const shownnotification = document.querySelector('.shownnotification');
 const clickshownnotification = document.querySelector('.clickshownnotification');
-const controlcalen = document.querySelector('.claendar');
+const controlcalen = document.querySelector('.calendar');
 const clickcalneder = document.querySelector('.openclender');
 const focutoggle = document.querySelector('.focustoggle');
 const clickfocustoggle = document.querySelector('.clickfocustoggle');
@@ -20,7 +20,8 @@ const hover = document.querySelector('.brightness-hover');
 const CalenDate = document.querySelector('#calendar-days');
 const premonth = document.querySelector('#prev-month');
 const nextmonth = document.querySelector('#next-month');
-const setdate = document.querySelector('#Month-clen');
+const setdate = document.querySelector('#month-name');
+const setuperdate = document.querySelector('.month-clen');
 const monthDisplay = document.querySelector('.claendar .text-sm');
 const timerfix = document.querySelector('.timer-fix');
 const dectimer = document.querySelector('.dectimer');
@@ -449,7 +450,7 @@ clickmenu?.forEach(menu => {
 
 // Full Clock View
 Openfullclock?.addEventListener('click', () => {
-    focusUi.classList.remove('hidden');
+    focusUi.classList.remove('hiden');
     checkfocus = false;
     focutoggle.classList.remove('show');
     clearInterval(countdownInterval);
@@ -521,6 +522,7 @@ function renderCalendar(date) {
     const monthName = getMonthName(month);
     if (monthDisplay) monthDisplay.textContent = `${monthName} ${year}`;
     setdate.textContent = `${monthName}, ${date.getDate()} ${year}`;
+    setuperdate.textContent = `${monthName}, ${date.getDate()} ${year}`;
 }
 premonth?.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
@@ -838,18 +840,39 @@ group.forEach(icon => {
 
 
 });
+// Get the elements
+const focusUI = document.querySelector('.focus-ui');
+const minimizeBtn = document.querySelector('.title-right button:nth-child(1)');
+const cover = document.querySelector('.cover')
+const maximizeBtn = document.querySelector('.title-right button:nth-child(2)');
 
-const chromeIcon = document.querySelector('.group');
-const chromeSection = document.querySelector('.chrome');
-const browserWindow = chromeSection.querySelector('.browser-window');
-const closeBtn = document.getElementById('closeWindow');
-
-chromeIcon.addEventListener('dblclick', () => {
-  chromeSection.style.display = 'flex'; 
-  browserWindow.style.display = 'flex'; 
+// Minimize: hide the section
+minimizeBtn.addEventListener('click', () => {
+    focusUI.style.display = 'none';
 });
 
-closeBtn.addEventListener('click', () => {
-  browserWindow.style.display = 'none';
-  chromeSection.style.display = 'none';
+// Maximize: toggle full screen mode for the section
+cover.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        focusUI.requestFullscreen().catch(err => {
+            alert(`Error attempting fullscreen: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
 });
+let iswindow = false
+maximizeBtn.addEventListener('click', () => {
+    if (iswindow) {
+        focusUI.classList.add('halfscreen')
+        focusUI.classList.remove('fullscreen')
+        iswindow = false
+    } else {
+        focusUI.classList.add('fullscreen')
+        focusUI.classList.remove('halfscreen')
+        iswindow = true
+    }
+});
+
+
+

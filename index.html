@@ -59,7 +59,8 @@
                                 <div>netflix</div>
                             </div>
                             <div class="group ">
-                                <img id="fileid" class="h-10 mx-auto cursor-pointer" src="icons8-file-explorer-new-48.png" alt="Clock" />
+                                <img id="fileid" class="h-10 mx-auto cursor-pointer"
+                                    src="icons8-file-explorer-new-48.png" alt="Clock" />
                                 <div>netflix</div>
                             </div>
 
@@ -344,507 +345,501 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
-
-                        <!-- Side Panel (Hidden by Default) -->
-                        <section
-                            class="weather-panel absolute top-0 left-4 w-[60%] h-[92%] overflow-y-auto transition-all duration-500 ease-in-out bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-2xl rounded-2xl p-8 opacity-0 translate-x-[-20px] pointer-events-none z-50">
-                            <!-- Header -->
-                            <div class="flex items-center justify-between mb-6">
-                                <h2
-                                    class="text-4xl font-extrabold text-gray-800 dark:text-white flex items-center gap-2">
-                                    🌤️ <span>Weather Overview</span>
-                                </h2>
-                                <span class="text-sm text-gray-500 dark:text-gray-400 italic">Live updates</span>
-                            </div>
-
-                            <!-- Weather Info -->
-                            <div class="flex items-center gap-8 mb-8">
-                                <div class="flex flex-col items-start">
-                                    <div class="weather-temp text-6xl font-black text-blue-600 dark:text-blue-400">--°C
-                                    </div>
-                                    <div class="weather-condition text-2xl text-gray-600 dark:text-gray-300">Loading...
-                                    </div>
-                                </div>
-                                <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="Weather Icon"
-                                    class="w-20 h-20 drop-shadow-lg" />
-                            </div>
-
-                            <hr class="my-6 border-gray-300 dark:border-gray-700" />
-
-                            <!-- Image Section -->
-                            <div class="image-area mb-6">
-                                <img alt="Random Pic"
-                                    class="random-img rounded-2xl w-full h-72 object-cover shadow-lg transition-transform duration-300 hover:scale-105" />
-                            </div>
-
-                            <hr class="my-6 border-gray-300 dark:border-gray-700" />
-
-                            <!-- News Area -->
-                            <div class="news-area">
-                                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-                                    📰 Top Headlines
-                                </h3>
-                                <div
-                                    class="rounded-2xl overflow-hidden border border-gray-300 dark:border-gray-700 shadow-lg">
-                                    <iframe src="https://rss.app/embed/v1/list/Bj8XoD1H4IIGKxLo" width="100%"
-                                        height="400" frameborder="0" class="w-full h-[400px]"></iframe>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="context-menu">
-                            <ul>
-                                <li><i class="ri-gallery-view-2"></i></i> View</li>
-                                <li><i class="ri-sort-desc"></i>Sort by</li>
-                                <li class="Refresh"><i class="ri-reset-right-line"></i> Refresh</li>
-                                <li><i class="ri-keyboard-line"></i>Sortcuts</li>
-                                <hr>
-                                <li class="newcreate">
-                                    <span class="flex justify-between ">
-                                        <span><i class="ri-add-circle-line"></i> New</span>
-                                        <span class="click-tonew">&gt;</span>
-                                    </span>
-                                    <div class="newhidendiv">
-                                        <ul>
-                                            <li class="newfolder">Folder</li>
-                                            <li class="newnotes">Notes</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li><i class="ri-edit-2-line"></i> Personalize</li>
-                            </ul>
-                        </section>
                     </div>
-                    <!-- background: linear-gradient(to right, #f1f5f9, #ffe4e6, #c7d2fe); -->
-                    <!-- <div class="taskbar bg-gradient-right from- dark:from-slate-800 dark:text-white dark:via-slate-900 dark:to-black"> -->
-                    <div
-                        class="taskbar bg-gradient-to-r from-slate-100 via-rose-100 to-indigo-200 dark:from-slate-800 dark:via-slate-900 dark:to-black dark:text-white">
-                        <div class="weather-area">
-                            <div class="weather-widget">
-                                <div class="weather-icon-wrapper">
-                                    <img src="" alt="weather icon" class="weather-icon dark:brightness-90" />
-                                    <span class="weather-badge">2</span>
-                                </div>
-                                <div class="weather-info">
-                                    <div class="weather-temps dark:text-white">--°C</div>
-                                    <div class="weather-condition weather-conditions dark:text-white-400">Loading...
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- https://plus.unsplash.com/premium_photo-1683740128021-effcc3f70ef9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D -->
-                        <!-- Start Menu + Pinned Icons -->
-                        <div class="pinned-icons">
-                            <!-- Start Menu Icon -->
-                            <div class="clickmenu">
-                                <div class="start-menu">
-                                    <div class="start-tile"></div>
-                                    <div class="start-tile"></div>
-                                    <div class="start-tile"></div>
-                                    <div class="start-tile"></div>
-                                </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Start</div>
-                            </div>
+                    </section>
 
-                            <!-- Search -->
-                            <div class="icon-group">
-                                <div class="search dark:bg-gray-700/80">
-                                    <i class="ri-search-line dark:text-gray-200"></i>
-                                    <small class="dark:text-gray-200">Search</small>
-                                </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Search</div>
-                            </div>
-
-                            <!-- File Explorer -->
-                            <div class="icon-group">
-                                <img class="icon-img" src="icons8-file-explorer-new-48.png" alt="">
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">File Explorer</div>
-                            </div>
-
-                            <!-- Chrome -->
-                            <div class="icon-group">
-                                <img class="icon-img" src="chrome.png" alt="">
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Chrome</div>
-                            </div>
-
-                            <!-- VS Code -->
-                            <div class="icon-group">
-                                <img class="icon-img" src="icons8-visual-studio-code-48.png" alt="">
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">VS Code</div>
-                            </div>
+                    <!-- Side Panel (Hidden by Default) -->
+                    <section class="weather-panel">
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="dark:text-white flex items-center gap-2">
+                                🌤️ <span>Weather Overview</span>
+                            </h2>
+                            <span class="text-sm dark:text-gray-400 italic">Live updates</span>
                         </div>
 
-                        <!-- System Icons & Clock -->
-                        <div class="system-icons">
-                            <div class="icon-group">
-                                <i class="ri-arrow-up-wide-fill dark:text-gray-200"></i>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">More</div>
+                        <!-- Weather Info -->
+                        <div class="flex items-center gap-8 mb-8">
+                            <div class="flex flex-col items-start">
+                                <div class="weather-temp dark:text-blue-400">--°C</div>
+                                <div class="weather-condition dark:text-gray-300">Loading...</div>
                             </div>
-                            <div class="icon-group">
-                                <div class="language dark:text-gray-200">
-                                    <div>ENG</div>
-                                    <div>IN</div>
-                                </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Language</div>
-                            </div>
-                            <div class="icon-group showwifi ">
-                                <div class="status-icons dark:text-gray-200">
-                                    <span class="changeconditionwifi"><i class="ri-earth-line"></i></span>
-                                    <i class="ri-volume-up-line"></i>
-                                    <i class="ri-battery-fill"></i>
-                                </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Wi-Fi / Volume / Battery
-                                </div>
-                            </div>
-                            <div class="icon-group  clickshownnotification ">
-                                <div class="datetime dark:text-gray-200 ">
-                                    <span>
-                                        <div class="time">23:07:00</div>
-                                        <div class="date">21-06-2025</div>
-                                    </span>
-                                    <i class="ri-notification-snooze-line"></i>
-                                </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Date & Time</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- WiFi Panel -->
-            <div class="wifi dark:bg-gray-900 dark:border-gray-700 ">
-                <div class="box  dark:bg-gray-800">
-                    <div class="elements dark:bg-gray-900">
-                        <!-- Wi-Fi -->
-                        <!-- ✅ Wi-Fi -->
-                        <div class="relative group">
-                            <div id="bluecompletewifi" class="start dark:bg-gray-800">
-
-                                <div id="11"> <i class="wifiicon ri-wifi-line dark:text-white"></i></div>
-                                <span id="1" class="ml-5 border-l-white hover:bg-gray-200"><i
-                                        class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
-                            </div>
-                            <div class="heading font-segoe dark:text-gray-200">Wi-Fi</div>
+                            <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="Weather Icon" />
                         </div>
 
-                        <!-- ✅ Bluetooth -->
-                        <div class="relative group">
-                            <div id="bluecompleteblutooth" class="start dark:bg-gray-800">
-                                <div id="22"><i class="ri-bluetooth-line dark:text-white"></i></div>
-                                <span id="2" class="ml-5 border-l-white hover:bg-gray-200"><i
-                                        class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
-                            </div>
-                            <div class="heading font-segoe dark:text-gray-200">Bluetooth</div>
+                        <hr class="my-6 dark:border-gray-700" />
+
+                        <!-- Image Section -->
+                        <div class="image-area mb-6">
+                            <img alt="Random Pic" class="random-img" />
                         </div>
 
+                        <hr class="my-6 dark:border-gray-700" />
 
-
-                        <!-- Airplane Mode -->
-                        <div class="relative group">
-                            <div id="33" class="start text-center dark:bg-gray-800 bg-white">
-                                <i class="ri-plane-line dark:text-white"></i>
-                                <div class="heading font-segoe dark:text-gray-200">Airplane Mode</div>
-
+                        <!-- News Area -->
+                        <div class="news-area">
+                            <h3 class="dark:text-white mb-4">📰 Top Headlines</h3>
+                            <div class="news-box dark:border-gray-700">
+                                <iframe src="https://rss.app/embed/v1/list/Bj8XoD1H4IIGKxLo" frameborder="0"></iframe>
                             </div>
-                            <div class="tooltip dark:bg-gray-800">Airplane Mode</div>
                         </div>
+                    </section>
 
-                        <!-- Battery Saver -->
-                        <div class="relative group">
-                            <div id="44" class="start text-center dark:bg-gray-800 bg-white">
-                                <i class="ri-battery-saver-line dark:text-white"></i>
-                                <div class=" heading font-segoe dark:text-gray-200">Energy saver</div>
 
-                            </div>
-                            <div class="tooltip dark:bg-gray-800">Battery Saver</div>
-                        </div>
 
-                        <!-- Night Mode -->
-                        <div class="relative group">
-                            <div id="55" class="start text-center dark:bg-gray-800 bg-white">
-                                <span class="modeiconchange">
-                                    <i class="ri-sun-line dark:text-white"></i>
-                                    <div class="heading font-segoe dark:text-gray-200">Night Mode</div>
 
+                    <section class="context-menu">
+                        <ul>
+                            <li><i class="ri-gallery-view-2"></i></i> View</li>
+                            <li><i class="ri-sort-desc"></i>Sort by</li>
+                            <li class="Refresh"><i class="ri-reset-right-line"></i> Refresh</li>
+                            <li><i class="ri-keyboard-line"></i>Sortcuts</li>
+                            <hr>
+                            <li class="newcreate">
+                                <span class="flex justify-between ">
+                                    <span><i class="ri-add-circle-line"></i> New</span>
+                                    <span class="click-tonew">&gt;</span>
                                 </span>
+                                <div class="newhidendiv">
+                                    <ul>
+                                        <li class="newfolder">Folder</li>
+                                        <li class="newnotes">Notes</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><i class="ri-edit-2-line"></i> Personalize</li>
+                        </ul>
+                    </section>
+                </div>
+                <!-- background: linear-gradient(to right, #f1f5f9, #ffe4e6, #c7d2fe); -->
+                <!-- <div class="taskbar bg-gradient-right from- dark:from-slate-800 dark:text-white dark:via-slate-900 dark:to-black"> -->
+                <div
+                    class="taskbar bg-gradient-to-r from-slate-100 via-rose-100 to-indigo-200 dark:from-slate-800 dark:via-slate-900 dark:to-black dark:text-white">
+                    <div class="weather-area">
+                        <div class="weather-widget">
+                            <div class="weather-icon-wrapper">
+                                <img src="" alt="weather icon" class="weather-icon dark:brightness-90" />
+                                <span class="weather-badge">2</span>
                             </div>
-                            <div class="tooltip dark:bg-gray-800">Night Mode</div>
+                            <div class="weather-info">
+                                <div class="weather-temps dark:text-white">--°C</div>
+                                <div class="weather-condition weather-conditions dark:text-white-400">Loading...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- https://plus.unsplash.com/premium_photo-1683740128021-effcc3f70ef9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D -->
+                    <!-- Start Menu + Pinned Icons -->
+                    <div class="pinned-icons">
+                        <!-- Start Menu Icon -->
+                        <div class="clickmenu">
+                            <div class="start-menu">
+                                <div class="start-tile"></div>
+                                <div class="start-tile"></div>
+                                <div class="start-tile"></div>
+                                <div class="start-tile"></div>
+                            </div>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Start</div>
                         </div>
 
-                        <!-- Accessibility -->
-                        <div class="relative group">
-                            <div id="66" class="start text-center dark:bg-gray-800 bg-white">
-                                <i class="ri-user-shared-line dark:text-white"></i>
-                                <div class=" heading font-segoe dark:text-gray-200">Accessibility</div>
-
+                        <!-- Search -->
+                        <div class="icon-group">
+                            <div class="search dark:bg-gray-700/80">
+                                <i class="ri-search-line dark:text-gray-200"></i>
+                                <small class="dark:text-gray-200">Search</small>
                             </div>
-                            <div class="tooltip dark:bg-gray-800">Accessibility</div>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Search</div>
+                        </div>
+
+                        <!-- File Explorer -->
+                        <div class="icon-group">
+                            <img class="icon-img" src="icons8-file-explorer-new-48.png" alt="">
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">File Explorer</div>
+                        </div>
+
+                        <!-- Chrome -->
+                        <div class="icon-group">
+                            <img class="icon-img" src="chrome.png" alt="">
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Chrome</div>
+                        </div>
+
+                        <!-- VS Code -->
+                        <div class="icon-group">
+                            <img class="icon-img" src="icons8-visual-studio-code-48.png" alt="">
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">VS Code</div>
                         </div>
                     </div>
 
-                    <!-- Sliders & Info -->
-                    <div class="sliders dark:bg-gray-900 dark:border-gray-700 mt-10">
-                        <div class="slider-row">
-                            <i class="ri-sun-line"></i>
-                            <input type="range" class="brightness-controll" min="50" max="150" />
-                            <span class="brightness-hover">50%</span>
+                    <!-- System Icons & Clock -->
+                    <div class="system-icons">
+                        <div class="icon-group">
+                            <i class="ri-arrow-up-wide-fill dark:text-gray-200"></i>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">More</div>
                         </div>
-                        <div class="slider-row">
-                            <i class="ri-volume-up-line"></i>
-                            <input type="range" class="brightness-controll" />
+                        <div class="icon-group">
+                            <div class="language dark:text-gray-200">
+                                <div>ENG</div>
+                                <div>IN</div>
+                            </div>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Language</div>
                         </div>
-                        <div class="info-row">
+                        <div class="icon-group showwifi ">
+                            <div class="status-icons dark:text-gray-200">
+                                <span class="changeconditionwifi"><i class="ri-earth-line"></i></span>
+                                <i class="ri-volume-up-line"></i>
+                                <i class="ri-battery-fill"></i>
+                            </div>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Wi-Fi / Volume / Battery
+                            </div>
+                        </div>
+                        <div class="icon-group  clickshownnotification ">
+                            <div class="datetime dark:text-gray-200 ">
+                                <span>
+                                    <div class="time">23:07:00</div>
+                                    <div class="date">21-06-2025</div>
+                                </span>
+                                <i class="ri-notification-snooze-line"></i>
+                            </div>
+                            <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Date & Time</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- WiFi Panel -->
+        <div class="wifi dark:bg-gray-900 dark:border-gray-700 ">
+            <div class="box  dark:bg-gray-800">
+                <div class="elements dark:bg-gray-900">
+                    <!-- Wi-Fi -->
+                    <!-- ✅ Wi-Fi -->
+                    <div class="relative group">
+                        <div id="bluecompletewifi" class="start dark:bg-gray-800">
+
+                            <div id="11"> <i class="wifiicon ri-wifi-line dark:text-white"></i></div>
+                            <span id="1" class="ml-5 border-l-white hover:bg-gray-200"><i
+                                    class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
+                        </div>
+                        <div class="heading font-segoe dark:text-gray-200">Wi-Fi</div>
+                    </div>
+
+                    <!-- ✅ Bluetooth -->
+                    <div class="relative group">
+                        <div id="bluecompleteblutooth" class="start dark:bg-gray-800">
+                            <div id="22"><i class="ri-bluetooth-line dark:text-white"></i></div>
+                            <span id="2" class="ml-5 border-l-white hover:bg-gray-200"><i
+                                    class="ri-arrow-right-s-line arrow-icon dark:text-white"></i></span>
+                        </div>
+                        <div class="heading font-segoe dark:text-gray-200">Bluetooth</div>
+                    </div>
+
+
+
+                    <!-- Airplane Mode -->
+                    <div class="relative group">
+                        <div id="33" class="start text-center dark:bg-gray-800 bg-white">
+                            <i class="ri-plane-line dark:text-white"></i>
+                            <div class="heading font-segoe dark:text-gray-200">Airplane Mode</div>
+
+                        </div>
+                        <div class="tooltip dark:bg-gray-800">Airplane Mode</div>
+                    </div>
+
+                    <!-- Battery Saver -->
+                    <div class="relative group">
+                        <div id="44" class="start text-center dark:bg-gray-800 bg-white">
+                            <i class="ri-battery-saver-line dark:text-white"></i>
+                            <div class=" heading font-segoe dark:text-gray-200">Energy saver</div>
+
+                        </div>
+                        <div class="tooltip dark:bg-gray-800">Battery Saver</div>
+                    </div>
+
+                    <!-- Night Mode -->
+                    <div class="relative group">
+                        <div id="55" class="start text-center dark:bg-gray-800 bg-white">
+                            <span class="modeiconchange">
+                                <i class="ri-sun-line dark:text-white"></i>
+                                <div class="heading font-segoe dark:text-gray-200">Night Mode</div>
+
+                            </span>
+                        </div>
+                        <div class="tooltip dark:bg-gray-800">Night Mode</div>
+                    </div>
+
+                    <!-- Accessibility -->
+                    <div class="relative group">
+                        <div id="66" class="start text-center dark:bg-gray-800 bg-white">
+                            <i class="ri-user-shared-line dark:text-white"></i>
+                            <div class=" heading font-segoe dark:text-gray-200">Accessibility</div>
+
+                        </div>
+                        <div class="tooltip dark:bg-gray-800">Accessibility</div>
+                    </div>
+                </div>
+
+                <!-- Sliders & Info -->
+                <div class="sliders dark:bg-gray-900 dark:border-gray-700 mt-10">
+                    <div class="slider-row">
+                        <i class="ri-sun-line"></i>
+                        <input type="range" class="brightness-controll" min="50" max="150" />
+                        <span class="brightness-hover">50%</span>
+                    </div>
+                    <div class="slider-row">
+                        <i class="ri-volume-up-line"></i>
+                        <input type="range" class="brightness-controll" />
+                    </div>
+                    <div class="info-row">
+                        <div>
+                            <i class="ri-battery-2-fill"></i>
+                            <span>76%</span>
+                        </div>
+                        <div class="settings-icon">
+                            <i id="3" class="ri-settings-3-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="panel-section">
+            <div class="panels-container">
+                <!-- Wi-Fi Settings Panel -->
+                <div id="panel-1" class="panel dark:bg-gray-900 dark:text-gray-100">
+                    <h2 class="panel-title">
+                        <i class="backtowifi ri-arrow-left-s-line"></i> Wi-Fi Settings
+                    </h2>
+                    <div class="wifi-toggle">
+                        <span>Wi-Fi Enabled</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" class="sr-only" id="wifionly" />
+                            <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <hr />
+                    <div class="wifi-list">
+                        <div class="wifi-item">
                             <div>
-                                <i class="ri-battery-2-fill"></i>
-                                <span>76%</span>
+                                <p class="wifi-name">Home Wi-Fi</p>
+                                <p class="wifi-status dark:text-gray-400">Connected, secured</p>
                             </div>
-                            <div class="settings-icon">
-                                <i id="3" class="ri-settings-3-line"></i>
+                            <i class="ri-check-line wifi-icon"></i>
+                        </div>
+                        <div class="wifi-item">
+                            <div>
+                                <p class="wifi-name">Office Network</p>
+                                <p class="wifi-status dark:text-gray-400">Secured</p>
                             </div>
+                            <button class="wifi-connect-btn">Connect</button>
+                        </div>
+                        <div class="wifi-item">
+                            <div>
+                                <p class="wifi-name">Guest Wi-Fi</p>
+                                <p class="wifi-status dark:text-gray-400">Open</p>
+                            </div>
+                            <button class="wifi-connect-btn">Connect</button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <section class="panel-section">
-                <div class="panels-container">
-                    <!-- Wi-Fi Settings Panel -->
-                    <div id="panel-1" class="panel dark:bg-gray-900 dark:text-gray-100">
-                        <h2 class="panel-title">
-                            <i class="backtowifi ri-arrow-left-s-line"></i> Wi-Fi Settings
-                        </h2>
-                        <div class="wifi-toggle">
-                            <span>Wi-Fi Enabled</span>
+                <!-- Bluetooth Settings Panel -->
+                <div id="panel-2" class="panel dark:bg-gray-900 dark:text-gray-100">
+                    <h2 class="panel-title">
+                        <i class="backtowifi ri-arrow-left-s-line"></i> Bluetooth Settings
+                    </h2>
+                    <div class="wifi-toggle">
+                        <span>Bluetooth Enabled</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" class="sr-only" id="bluetoothonly" />
+                            <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <hr />
+                    <div class="bluetooth-list">
+                        <div class="bluetooth-item">
+                            <div>
+                                <p class="bluetooth-name">Headphones XYZ</p>
+                                <p class="bluetooth-status dark:text-gray-400">Paired</p>
+                            </div>
+                            <button class="bluetooth-btn connected">Connected</button>
+                        </div>
+                        <div class="bluetooth-item">
+                            <div>
+                                <p class="bluetooth-name">Smartwatch 123</p>
+                                <p class="bluetooth-status dark:text-gray-400">Available</p>
+                            </div>
+                            <button class="bluetooth-btn">Connect</button>
+                        </div>
+                        <div class="bluetooth-item">
+                            <div>
+                                <p class="bluetooth-name">Car Audio</p>
+                                <p class="bluetooth-status dark:text-gray-400">Available</p>
+                            </div>
+                            <button class="bluetooth-btn">Connect</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Settings Panel -->
+                <div id="panel-3" class="panel dark:bg-gray-900 dark:text-gray-100">
+                    <h2 class="panel-title">
+                        <i class="backtowifi ri-arrow-left-s-line"></i> General Settings
+                    </h2>
+                    <div class="general-list">
+                        <div class="general-item">
+                            <span>Dark Mode</span>
                             <label class="toggle-switch">
-                                <input type="checkbox" class="sr-only" id="wifionly" />
+                                <input type="checkbox" class="sr-only" id="darkModeToggle" />
                                 <div class="toggle-track">
                                     <div class="toggle-thumb"></div>
                                 </div>
                             </label>
                         </div>
-                        <hr />
-                        <div class="wifi-list">
-                            <div class="wifi-item">
-                                <div>
-                                    <p class="wifi-name">Home Wi-Fi</p>
-                                    <p class="wifi-status dark:text-gray-400">Connected, secured</p>
-                                </div>
-                                <i class="ri-check-line wifi-icon"></i>
-                            </div>
-                            <div class="wifi-item">
-                                <div>
-                                    <p class="wifi-name">Office Network</p>
-                                    <p class="wifi-status dark:text-gray-400">Secured</p>
-                                </div>
-                                <button class="wifi-connect-btn">Connect</button>
-                            </div>
-                            <div class="wifi-item">
-                                <div>
-                                    <p class="wifi-name">Guest Wi-Fi</p>
-                                    <p class="wifi-status dark:text-gray-400">Open</p>
-                                </div>
-                                <button class="wifi-connect-btn">Connect</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bluetooth Settings Panel -->
-                    <div id="panel-2" class="panel dark:bg-gray-900 dark:text-gray-100">
-                        <h2 class="panel-title">
-                            <i class="backtowifi ri-arrow-left-s-line"></i> Bluetooth Settings
-                        </h2>
-                        <div class="wifi-toggle">
-                            <span>Bluetooth Enabled</span>
+                        <div class="general-item">
+                            <span>Light Mode</span>
                             <label class="toggle-switch">
-                                <input type="checkbox" class="sr-only" id="bluetoothonly" />
+                                <input type="checkbox" class="sr-only" id="lightModeToggle" />
                                 <div class="toggle-track">
                                     <div class="toggle-thumb"></div>
                                 </div>
                             </label>
                         </div>
-                        <hr />
-                        <div class="bluetooth-list">
-                            <div class="bluetooth-item">
-                                <div>
-                                    <p class="bluetooth-name">Headphones XYZ</p>
-                                    <p class="bluetooth-status dark:text-gray-400">Paired</p>
+                        <div class="general-item">
+                            <span>Study Mode</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" class="sr-only" id="studyModeToggle" />
+                                <div class="toggle-track">
+                                    <div class="toggle-thumb"></div>
                                 </div>
-                                <button class="bluetooth-btn connected">Connected</button>
-                            </div>
-                            <div class="bluetooth-item">
-                                <div>
-                                    <p class="bluetooth-name">Smartwatch 123</p>
-                                    <p class="bluetooth-status dark:text-gray-400">Available</p>
+                            </label>
+                        </div>
+                        <div class="general-item">
+                            <span>Night Mode</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" class="sr-only" id="nightModeToggle" />
+                                <div class="toggle-track">
+                                    <div class="toggle-thumb"></div>
                                 </div>
-                                <button class="bluetooth-btn">Connect</button>
-                            </div>
-                            <div class="bluetooth-item">
-                                <div>
-                                    <p class="bluetooth-name">Car Audio</p>
-                                    <p class="bluetooth-status dark:text-gray-400">Available</p>
-                                </div>
-                                <button class="bluetooth-btn">Connect</button>
-                            </div>
+                            </label>
                         </div>
                     </div>
-
-                    <!-- General Settings Panel -->
-                    <div id="panel-3" class="panel dark:bg-gray-900 dark:text-gray-100">
-                        <h2 class="panel-title">
-                            <i class="backtowifi ri-arrow-left-s-line"></i> General Settings
-                        </h2>
-                        <div class="general-list">
-                            <div class="general-item">
-                                <span>Dark Mode</span>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="darkModeToggle" />
-                                    <div class="toggle-track">
-                                        <div class="toggle-thumb"></div>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="general-item">
-                                <span>Light Mode</span>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="lightModeToggle" />
-                                    <div class="toggle-track">
-                                        <div class="toggle-thumb"></div>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="general-item">
-                                <span>Study Mode</span>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="studyModeToggle" />
-                                    <div class="toggle-track">
-                                        <div class="toggle-thumb"></div>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="general-item">
-                                <span>Night Mode</span>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" class="sr-only" id="nightModeToggle" />
-                                    <div class="toggle-track">
-                                        <div class="toggle-thumb"></div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="random-wallpaper">
-                            <button class="random-wallpaper-btn">Change Random Wallpaper</button>
-                        </div>
+                    <div class="random-wallpaper">
+                        <button class="random-wallpaper-btn">Change Random Wallpaper</button>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <div class="showmenu dark:border-zinc-700 dark:bg-gray-900">
-                <div class="showmenu-inner">
-                    <div class="serch dark:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-                        </svg>
-                        <input class="search-input dark:text-gray-100 dark:bg-gray-800" type="text"
-                            placeholder="Search for apps, Settings, and documents">
+        <div class="showmenu dark:border-zinc-700 dark:bg-gray-900">
+            <div class="showmenu-inner">
+                <div class="serch dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                    </svg>
+                    <input class="search-input dark:text-gray-100 dark:bg-gray-800" type="text"
+                        placeholder="Search for apps, Settings, and documents">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Notification Panel -->
+        <div class="shownnotification   dark:bg-gray-900/90 dark:border-gray-700 dark:text-gray-100 ">
+            <!-- Header -->
+            <div class="flex justify-between show items-center">
+                <h2 class="text-sm font-semibold text-gray-700 dark:text-gray-100">Notifications</h2>
+                <i class="ri-expand-left-right-line text-blue-500 text-lg cursor-pointer"></i>
+            </div>
+
+            <!-- Notification Items -->
+            <div class="notification-items">
+                <div class="notification-item hover:dark:bg-gray-800">
+                    <i class="ri-mail-line text-blue-500"></i>
+                    <div>
+                        <p>New Email Received</p>
+                        <p class="dark:text-gray-400">You have a message from John.</p>
+                        <span class="dark:text-gray-500">2 mins ago</span>
+                    </div>
+                </div>
+
+                <div class="notification-item hover:dark:bg-gray-800">
+                    <i class="ri-chat-3-line text-green-500"></i>
+                    <div>
+                        <p>New Chat from Alice</p>
+                        <p class="dark:text-gray-400">“Are we still on for 5 PM?”</p>
+                        <span class="dark:text-gray-500">10 mins ago</span>
+                    </div>
+                </div>
+
+                <div class="notification-item hover:dark:bg-gray-800">
+                    <i class="ri-alert-line text-yellow-500"></i>
+                    <div>
+                        <p>System Update</p>
+                        <p class="dark:text-gray-400">A new update is available.</p>
+                        <span class="dark:text-gray-500">1 hour ago</span>
                     </div>
                 </div>
             </div>
 
+            <hr class="dark:border-gray-700" />
 
-            <!-- Notification Panel -->
-            <div class="shownnotification   dark:bg-gray-900/90 dark:border-gray-700 dark:text-gray-100 ">
-                <!-- Header -->
-                <div class="flex justify-between show items-center">
-                    <h2 class="text-sm font-semibold text-gray-700 dark:text-gray-100">Notifications</h2>
-                    <i class="ri-expand-left-right-line text-blue-500 text-lg cursor-pointer"></i>
+            <!-- Header with month (small) -->
+            <div class="flex justify-between">
+                <div class="month-clen dark:text-gray-300">Monday, 23 June</div>
+                <div class="openclender dark:bg-gray-800/80">
+                    <span class="claendar">
+                        <i class="ri-arrow-up-s-line"></i>
+                    </span>
                 </div>
-
-                <!-- Notification Items -->
-                <div class="notification-items">
-                    <div class="notification-item hover:dark:bg-gray-800">
-                        <i class="ri-mail-line text-blue-500"></i>
-                        <div>
-                            <p>New Email Received</p>
-                            <p class="dark:text-gray-400">You have a message from John.</p>
-                            <span class="dark:text-gray-500">2 mins ago</span>
-                        </div>
-                    </div>
-
-                    <div class="notification-item hover:dark:bg-gray-800">
-                        <i class="ri-chat-3-line text-green-500"></i>
-                        <div>
-                            <p>New Chat from Alice</p>
-                            <p class="dark:text-gray-400">“Are we still on for 5 PM?”</p>
-                            <span class="dark:text-gray-500">10 mins ago</span>
-                        </div>
-                    </div>
-
-                    <div class="notification-item hover:dark:bg-gray-800">
-                        <i class="ri-alert-line text-yellow-500"></i>
-                        <div>
-                            <p>System Update</p>
-                            <p class="dark:text-gray-400">A new update is available.</p>
-                            <span class="dark:text-gray-500">1 hour ago</span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="dark:border-gray-700" />
-
-                <!-- Header with month (small) -->
-                <div class="flex justify-between">
-                    <div class="month-clen dark:text-gray-300">Monday, 23 June</div>
-                    <div class="openclender dark:bg-gray-800/80">
-                        <span class="claendar">
-                            <i class="ri-arrow-up-s-line"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <hr class="dark:border-gray-700" />
-
-                <!-- Calendar full view -->
-                <div class="calendar  hidden">
-                    <div class="flex justify-between items-center">
-                        <div id="month-name" class="dark:text-gray-300">Monday, 23 June</div>
-                        <div class="space-x-2">
-                            <button id="prev-month" class="dark:text-gray-400 dark:hover:text-white">&larr;</button>
-                            <button id="next-month" class="dark:text-gray-400 dark:hover:text-white">&rarr;</button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-7 text-xs font-semibold text-center dark:text-gray-400">
-                        <div>Su</div>
-                        <div>Mo</div>
-                        <div>Tu</div>
-                        <div>We</div>
-                        <div>Th</div>
-                        <div>Fr</div>
-                        <div>Sa</div>
-                    </div>
-
-                    <div id="calendar-days" class="days">
-                        <!-- Injected with JS -->
-                    </div>
-                </div>
-
-                <!-- Focus Session Controls -->
-                <div class="focus-controls">
-                    <div class="timer dark:border-gray-600">
-                        <button class="dectimer dark:text-gray-300">-</button>
-                        <span class="timer-fix">30 mins</span>
-                        <button class="inctimer dark:text-gray-300">+</button>
-                    </div>
-                    <button class="focus-button clickfocustoggle">
-                        ▶ Focus
-                    </button>
-                </div>
-
             </div>
+
+            <hr class="dark:border-gray-700" />
+
+            <!-- Calendar full view -->
+            <div class="calendar  hidden">
+                <div class="flex justify-between items-center">
+                    <div id="month-name" class="dark:text-gray-300">Monday, 23 June</div>
+                    <div class="space-x-2">
+                        <button id="prev-month" class="dark:text-gray-400 dark:hover:text-white">&larr;</button>
+                        <button id="next-month" class="dark:text-gray-400 dark:hover:text-white">&rarr;</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-7 text-xs font-semibold text-center dark:text-gray-400">
+                    <div>Su</div>
+                    <div>Mo</div>
+                    <div>Tu</div>
+                    <div>We</div>
+                    <div>Th</div>
+                    <div>Fr</div>
+                    <div>Sa</div>
+                </div>
+
+                <div id="calendar-days" class="days">
+                    <!-- Injected with JS -->
+                </div>
+            </div>
+
+            <!-- Focus Session Controls -->
+            <div class="focus-controls">
+                <div class="timer dark:border-gray-600">
+                    <button class="dectimer dark:text-gray-300">-</button>
+                    <span class="timer-fix">30 mins</span>
+                    <button class="inctimer dark:text-gray-300">+</button>
+                </div>
+                <button class="focus-button clickfocustoggle">
+                    ▶ Focus
+                </button>
+            </div>
+
+        </div>
 
         </div>
 

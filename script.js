@@ -135,7 +135,9 @@ const dateFormatter = new Intl.DateTimeFormat('en-GB');
 const updateClock = () => {
     const now = new Date();
     time.textContent = timeFormatter.format(now);
+    document.querySelector('.lock-time').textContent = timeFormatter.format(now)
     date.textContent = dateFormatter.format(now);
+    document.querySelector('.lock-date').textContent = dateFormatter.format(now)
 };
 setInterval(updateClock, 500);
 
@@ -205,6 +207,23 @@ function alarm(minutes) {
     }, 1000);
 }
 
+const password = document.querySelector('#password')
+let lenght
+password.addEventListener('input', () => {
+    lenght = password.value.length
+})
+document.querySelector('.unlock-btn').addEventListener('click', () => {
+    if (lenght > 5) {
+        document.querySelector('.lock-screen').style.display = "none"
+        document.querySelector('.homescreen').style.display = 'block'
+    } else {
+        alert('Password too short!');
+    }
+})
+
+
+
+
 // Pause/Resume Button
 focusPauseBtn?.addEventListener('click', () => {
     isPaused = !isPaused;
@@ -252,12 +271,12 @@ closeclock?.addEventListener('click', () => {
 });
 
 Openfullclock?.addEventListener('click', () => {
-    focusUi.classList.remove('hidden');
+    focusUi.classList.remove('hiden');
     focutoggle.classList.remove('show');
     clearInterval(countdownInterval);
 });
 cancleapp?.addEventListener('click', () => {
-    focusUi.classList.add('hidden');
+    focusUi.classList.add('hiden');
     clickfocustoggle.textContent = ' ▶ focus';
     clearInterval(countdownInterval);
 });
@@ -557,7 +576,9 @@ fetch(url)
         const temp = data.current.temp_c;
 
         document.querySelector(".weather-temp").textContent = `${temp} °C`;
+        document.querySelector(".weather-temps").textContent = `${temp} °C`;
         document.querySelector(".weather-condition").textContent = condition;
+        document.querySelector(".weather-conditions").textContent = condition;
         document.querySelector(".weather-icon").src = getWeatherIcon(condition);
     })
     .catch(error => {
@@ -726,7 +747,7 @@ function closeTab(id) {
         switchTab(remaining[0]);
     } else {
         // ✅ If no tabs left → close the whole browser window
-        document.querySelector('.browser-window').style.display = 'none';
+        document.querySelector('.chrome').classList.add('hiden')
     }
 }
 
@@ -753,7 +774,7 @@ tabsContainer.querySelector('.add-tab').addEventListener('click', () => {
 
 // Close the whole window manually
 closeWindow.addEventListener('click', () => {
-    document.querySelector('.browser-window').style.display = 'none';
+    document.querySelector('.chrome').classList.add('hiden')
 });
 
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -786,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const group = document.querySelectorAll('.group');
+let focusui = document.querySelector(".focus-ui")
 
 group.forEach(icon => {
     let isDragging = false;
@@ -845,34 +867,152 @@ const focusUI = document.querySelector('.focus-ui');
 const minimizeBtn = document.querySelector('.title-right button:nth-child(1)');
 const cover = document.querySelector('.cover')
 const maximizeBtn = document.querySelector('.title-right button:nth-child(2)');
+const netflixapp = document.querySelector('.netflix-app')
+const chromes = document.querySelector('.chrome')
+const browserwindow = document.querySelector('.browser-window')
 
 // Minimize: hide the section
 minimizeBtn.addEventListener('click', () => {
     focusUI.style.display = 'none';
 });
 
-// Maximize: toggle full screen mode for the section
-cover.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        focusUI.requestFullscreen().catch(err => {
-            alert(`Error attempting fullscreen: ${err.message}`);
-        });
+function maximizebuttonclick(elem, flag) {
+    if (flag) {
+        elem.classList.add('halfscreen')
+        elem.classList.remove('fullscreen')
     } else {
-        document.exitFullscreen();
+        elem.classList.add('fullscreen')
+        elem.classList.remove('halfscreen')
+
     }
-});
+}
 let iswindow = false
+let isnetflix = false
+let ischome = false
 maximizeBtn.addEventListener('click', () => {
-    if (iswindow) {
-        focusUI.classList.add('halfscreen')
-        focusUI.classList.remove('fullscreen')
-        iswindow = false
-    } else {
-        focusUI.classList.add('fullscreen')
-        focusUI.classList.remove('halfscreen')
-        iswindow = true
-    }
+    maximizebuttonclick(focusUI, iswindow)
+    iswindow = !iswindow
+
+});
+document.querySelector('.netflix-height').addEventListener('click', () => {
+    maximizebuttonclick(netflixapp, isnetflix)
+    isnetflix = !isnetflix
+})
+document.querySelector('.chromesquare').addEventListener('click', () => {
+    maximizebuttonclick(chromes, ischome)
+    maximizebuttonclick(browserwindow, ischome)
+    ischome = !ischome
+})
+
+document.querySelector(".vscode-close").addEventListener('click', () => {
+    document.querySelector('.vscode-app').classList.add('hiden')
+})
+document.querySelector('.closenetflix').addEventListener('click', () => {
+    document.querySelector('.netflix-app').classList.add('hiden')
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chromeIcon = document.getElementById('chromeid');
+    const vscodeIcon = document.getElementById('vscodeid');
+    const clockIcon = document.getElementById('clockid');
+    const netflixid = document.getElementById('netflixid');
+    const fileid = document.querySelector('#fileid')
+
+    chromeIcon.addEventListener('dblclick', () => {
+        document.querySelector('.chrome').classList.remove('hiden')
+    });
+
+    vscodeIcon.addEventListener('dblclick', () => {
+        document.querySelector('.vscode-app').classList.remove('hiden')
+    });
+
+    clockIcon.addEventListener('dblclick', () => {
+        focusUi.classList.remove('hiden')
+    });
+    netflixid.addEventListener('dblclick', () => {
+        document.querySelector('.netflix-app').classList.remove('hiden')
+    })
+    fileid.addEventListener('dblclick' , ()=>{
+        document.querySelector('.file-explorer-app').classList.remove('hiden')
+    })
+
+});
+
+document.querySelectorAll('.snap-layout .cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+        const windowEl = cell.closest('.focus-ui, .chrome, .netflix-app  , .vscode-app , .file-explorer-app');
+        if (!windowEl) return;
+
+        const index = Array.from(cell.parentNode.children).indexOf(cell);
+        if (index === 0) {
+            // Maximize
+            windowEl.style.top = '0';
+            windowEl.style.left = '0';
+            windowEl.style.width = '100%';
+            windowEl.style.height = '92%';
+        } else if (index === 1) {
+            // Snap left
+            windowEl.style.top = '0';
+            windowEl.style.left = '0';
+            windowEl.style.width = '50%';
+            windowEl.style.height = '92%';
+        } else if (index === 2) {
+            // Snap right
+            windowEl.style.top = '0';
+            windowEl.style.left = '50vw';
+            windowEl.style.width = '50%';
+            windowEl.style.height = '92%';
+        }
+    });
+});
+
+// ✅ DRAGGABLE WINDOWS
+document.querySelectorAll('.draggable').forEach(bar => {
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+    const windowEl = bar.closest('.focus-ui, .chrome, .netflix-app , .vscode-app , .file-explorer-app');
+
+    bar.addEventListener('mousedown', e => {
+        isDragging = true;
+        const rect = windowEl.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        windowEl.style.position = 'absolute'; // Ensure absolute for free drag
+    });
+
+    document.addEventListener('mousemove', e => {
+        if (isDragging) {
+            windowEl.style.left = `${e.clientX - offsetX}px`;
+            windowEl.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
 });
 
 
+const newCreate = document.querySelector('.newcreate');
+const newHiddenDiv = document.querySelector('.newhidendiv');
 
+newCreate.addEventListener('mouseenter', () => {
+    newHiddenDiv.style.display = 'block';
+});
+
+newCreate.addEventListener('mouseleave', () => {
+    // Chhota delay + check agar mouse submenu par gaya ho
+    setTimeout(() => {
+        if (!newHiddenDiv.matches(':hover') && !newCreate.matches(':hover')) {
+            newHiddenDiv.style.display = 'none';
+        }
+    }, 100);
+});
+
+newHiddenDiv.addEventListener('mouseleave', () => {
+    newHiddenDiv.style.display = 'none';
+});
+
+newHiddenDiv.addEventListener('mouseenter', () => {
+    newHiddenDiv.style.display = 'block';
+});

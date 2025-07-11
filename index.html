@@ -16,8 +16,21 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     </head>
 
-    <body class="m-0 p-0 box-border dark:bg-black dark:text-white">
-        <div id="brightness-wapper" class="transition-all duration-300">
+    <body class="m-0 p-0 box-border relative dark:bg-black dark:text-white">
+        <div class="lock-screen">
+            <div class="lock-content">
+                <div class="lock-time" id="time">00:00</div>
+                <div class="lock-date" id="date">Monday, July 11</div>
+
+                <div class="password-input">
+                    <input type="password" placeholder="Enter your password" id="password">
+
+                    <button class="unlock-btn" onclick="unlock()">Unlock</button>
+                </div>
+                <small class="text-red-400">password must be greater than 5 charctor</small>
+            </div>
+        </div>
+        <div id="brightness-wapper" class="transition-all homescreen duration-300">
             <div>
                 <div class="w-screen h-screen bg-cover bg-center dark:bg-black ">
 
@@ -30,142 +43,306 @@
                                 <div>Chrome</div>
                             </div>
 
-                            <div class="group vscodeid">
-                                <img class="h-10 mx-auto cursor-pointer" src="icons8-visual-studio-code-48.png"
-                                    alt="VS Code" />
+                            <div class="group ">
+                                <img id="vscodeid" class="h-10 mx-auto cursor-pointer"
+                                    src="icons8-visual-studio-code-48.png" alt="VS Code" />
                                 <div>VS Code</div>
                             </div>
 
-                            <div class="group clockid">
-                                <img class="h-10 mx-auto cursor-pointer" src="icons8-clock-48.png" alt="Clock" />
+                            <div class="group ">
+                                <img id="clockid" class="h-10 mx-auto cursor-pointer" src="icons8-clock-48.png"
+                                    alt="Clock" />
                                 <div>Clock</div>
+                            </div>
+                            <div class="group ">
+                                <img id="netflixid" class="h-10 mx-auto cursor-pointer" src="netflix.png" alt="Clock" />
+                                <div>netflix</div>
+                            </div>
+                            <div class="group ">
+                                <img id="fileid" class="h-10 mx-auto cursor-pointer" src="icons8-file-explorer-new-48.png" alt="Clock" />
+                                <div>netflix</div>
                             </div>
 
                         </div>
 
+                        <section class="windows-apps">
 
-                        <!-- Full Focus Clock UI -->
-                        <section class="focus-ui  halfscreen hiden">
-                            <!-- 🔵 Title Bar -->
-                            <div class="title-bar">
-                                <div class="title-left">
-                                    <img src="icons8-clock-48.png" alt="Clock Icon" class="clock-icon" />
-                                    <span class="clock-title">Clock</span>
-                                </div>
-                                <div class="title-right">
-                                    <button class="btn">−</button>
-                                    <button class="btn hoversquare">
-                                        <i class="ri-rectangle-line"></i>
-                                        <div class="snap-layout">
-                                            <div class="layout cover">
-                                                <div class="cell selected"></div>
-                                                <div class="cell"></div>
-                                                <div class="cell"></div>
-                                            </div>
-                                            <div class="layout">
-                                                <div class="cell selected"></div>
-                                                <div class="cell"></div>
-                                                <div class="cell"></div>
-                                            </div>
-                                            <div class="layout">
-                                                <div class="cell selected"></div>
-                                                <div class="cell"></div>
-                                                <div class="cell"></div>
-                                            </div>
-                                            <div class="layout">
-                                                <div class="cell selected"></div>
-                                                <div class="cell"></div>
-                                                <div class="cell"></div>
-                                            </div>
-
-                                        </div>
-                                    </button>
-                                    <button class="btn cancle">✕</button>
-                                </div>
-                            </div>
-
-                            <!-- 🔵 Content -->
-                            <div class="content">
-                                <!-- Sidebar -->
-                                <aside class="sidebar">
-                                    <div>
-                                        <h2 class="sidebar-title">Clock</h2>
-                                        <nav class="sidebar-nav">
-                                            <div class="nav-item active">Focus sessions</div>
-                                            <div class="nav-item">Timer</div>
-                                            <div class="nav-item">Alarm</div>
-                                            <div class="nav-item">Stopwatch</div>
-                                            <div class="nav-item">World clock</div>
-                                        </nav>
+                            <!-- Full Focus Clock UI -->
+                            <section class="focus-ui  halfscreen hiden ">
+                                <!-- 🔵 Title Bar -->
+                                <div class="title-bar draggable">
+                                    <div class="title-left">
+                                        <img src="icons8-clock-48.png" alt="Clock Icon" class="clock-icon" />
+                                        <span class="clock-title">Clock</span>
                                     </div>
-                                    <div class="sidebar-bottom">
-                                        <div class="user">
-                                            <div class="user-icon">⌚</div>
-                                            <span>User</span>
-                                        </div>
-                                        <div class="settings">
-                                            <i class="ri-settings-3-line"></i> <span>Settings</span>
-                                        </div>
+                                    <div class="title-right">
+                                        <button class="btn">−</button>
+                                        <button class="btn hoversquare">
+                                            <i class="ri-rectangle-line"></i>
+                                            <div class="snap-layout">
+
+                                            </div>
+                                        </button>
+                                        <button class="btn cancle">✕</button>
                                     </div>
-                                </aside>
+                                </div>
 
-                                <!-- Main Content -->
-                                <div class="main-content">
-                                    <!-- Focus Timer -->
-                                    <section class="focus-timer">
-                                        <div class="focus-timer-title">Focus period (1 of 2)</div>
-                                        <div class="focus-timer-body">
-                                            <div class="circle-container">
-                                                <svg class="circle-svg">
-                                                    <circle cx="50%" cy="50%" r="65" stroke="#e2e8f0" stroke-width="8"
-                                                        fill="none" />
-                                                    <circle cx="50%" cy="50%" r="65" stroke="#3b82f6" stroke-width="8"
-                                                        fill="none" stroke-dasharray="400" stroke-dashoffset="80"
-                                                        stroke-linecap="round" />
-                                                </svg>
-                                                <div class="clocktimer">18 min</div>
-                                            </div>
-                                            <div class="focus-timer-buttons">
-                                                <button class="circle-btn"><i class="ri-pause-line"></i></button>
-                                                <button class="circle-btn"><i class="ri-more-2-line"></i></button>
-                                            </div>
-                                            <p class="focus-timer-next">Up next: 5 min break</p>
-                                        </div>
-                                    </section>
-
-                                    <!-- Daily Progress -->
-                                    <section class="daily-progress">
-                                        <h3 class="section-title">Daily progress</h3>
-                                        <div class="progress-body">
-                                            <div class="progress-info">
-                                                <p>Yesterday: <span class="bold">0 minutes</span></p>
-                                                <p>Completed: <span class="bold">2 minutes</span></p>
-                                                <p>Streak: <span class="bold">0 days</span></p>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                    <!-- Spotify -->
-                                    <section class="spotify">
+                                <!-- 🔵 Content -->
+                                <div class="content">
+                                    <!-- Sidebar -->
+                                    <aside class="sidebar">
                                         <div>
-                                            <h3 class="section-title">Spotify</h3>
-                                            <p class="spotify-desc">
-                                                You need the Spotify app to enhance your focus sessions with music and
-                                                podcasts.
-                                            </p>
+                                            <h2 class="sidebar-title">Clock</h2>
+                                            <nav class="sidebar-nav">
+                                                <div class="nav-item active">Focus sessions</div>
+                                                <div class="nav-item">Timer</div>
+                                                <div class="nav-item">Alarm</div>
+                                                <div class="nav-item">Stopwatch</div>
+                                                <div class="nav-item">World clock</div>
+                                            </nav>
                                         </div>
-                                        <a href="https://www.spotify.com/us/download/android/" class="spotify-btn">
-                                            Install Spotify
-                                        </a>
-                                    </section>
+                                        <div class="sidebar-bottom">
+                                            <div class="user">
+                                                <div class="user-icon">⌚</div>
+                                                <span>User</span>
+                                            </div>
+                                            <div class="settings">
+                                                <i class="ri-settings-3-line"></i> <span>Settings</span>
+                                            </div>
+                                        </div>
+                                    </aside>
 
-                                    <!-- Task List -->
-                                    <section class="task-list">
-                                        <h3 class="section-title">Tasks</h3>
-                                        <p class="task-desc">Add tasks and assign them to focus sessions throughout your
-                                            day.</p>
-                                        <button class="task-btn">+ Add a task</button>
-                                    </section>
+                                    <!-- Main Content -->
+                                    <div class="main-content">
+                                        <!-- Focus Timer -->
+                                        <section class="focus-timer">
+                                            <div class="focus-timer-title">Focus period (1 of 2)</div>
+                                            <div class="focus-timer-body">
+                                                <div class="circle-container">
+                                                    <svg class="circle-svg">
+                                                        <circle cx="50%" cy="50%" r="65" stroke="#e2e8f0"
+                                                            stroke-width="8" fill="none" />
+                                                        <circle cx="50%" cy="50%" r="65" stroke="#3b82f6"
+                                                            stroke-width="8" fill="none" stroke-dasharray="400"
+                                                            stroke-dashoffset="80" stroke-linecap="round" />
+                                                    </svg>
+                                                    <div class="clocktimer">18 min</div>
+                                                </div>
+                                                <div class="focus-timer-buttons">
+                                                    <button class="circle-btn"><i class="ri-pause-line"></i></button>
+                                                    <button class="circle-btn"><i class="ri-more-2-line"></i></button>
+                                                </div>
+                                                <p class="focus-timer-next">Up next: 5 min break</p>
+                                            </div>
+                                        </section>
+
+                                        <!-- Daily Progress -->
+                                        <section class="daily-progress">
+                                            <h3 class="section-title">Daily progress</h3>
+                                            <div class="progress-body">
+                                                <div class="progress-info">
+                                                    <p>Yesterday: <span class="bold">0 minutes</span></p>
+                                                    <p>Completed: <span class="bold">2 minutes</span></p>
+                                                    <p>Streak: <span class="bold">0 days</span></p>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <!-- Spotify -->
+                                        <section class="spotify">
+                                            <div>
+                                                <h3 class="section-title">Spotify</h3>
+                                                <p class="spotify-desc">
+                                                    You need the Spotify app to enhance your focus sessions with music
+                                                    and
+                                                    podcasts.
+                                                </p>
+                                            </div>
+                                            <a href="https://www.spotify.com/us/download/android/" class="spotify-btn">
+                                                Install Spotify
+                                            </a>
+                                        </section>
+
+                                        <!-- Task List -->
+                                        <section class="task-list">
+                                            <h3 class="section-title">Tasks</h3>
+                                            <p class="task-desc">Add tasks and assign them to focus sessions throughout
+                                                your
+                                                day.</p>
+                                            <button class="task-btn">+ Add a task</button>
+                                        </section>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="chrome  hiden">
+                                <div class="browser-window">
+                                    <header class="top-bar draggable">
+                                        <div class="tabs" id="tabs">
+                                            <div class="tab active" data-id="0">browse</div>
+                                            <div class="tab add-tab">+</div>
+                                        </div>
+                                        <div class="window-controls">
+                                            <span class="hoversquare ">
+                                                <span class="chromesquare">◻</span>
+                                                <div class="snap-layout">
+                                                    <div class="layout ">
+                                                        <div class="cell selected"></div>
+                                                        <div class="cell"></div>
+                                                        <div class="cell"></div>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span>🗕</span>
+                                            <span id="closeWindow">✕</span>
+                                        </div>
+                                    </header>
+                                    <main id="tabContentContainer">
+                                        <!-- Tab content gets added here -->
+                                    </main>
+                                </div>
+                            </section>
+                            <section id="vscodeApp" class="vscode-app halfscreen hiden ">
+                                <!-- Title Bar -->
+                                <div class="title-bar draggable">
+                                    <span>Visual Studio Code</span>
+                                    <div class="window-controls ">
+                                        <span class="hoversquare">
+                                            <span class="vscode-maximize">◻</span>
+                                            <div class="snap-layout">
+                                                <div class="layout">
+                                                    <div class="cell selected"></div>
+                                                    <div class="cell"></div>
+                                                    <div class="cell"></div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="vscode-minimize">🗕</span>
+                                        <span class="vscode-close">✕</span>
+                                    </div>
+                                </div>
+
+                                <!-- VS Code Layout -->
+                                <div class="vscode-body">
+                                    <!-- Sidebar -->
+                                    <aside class="sidebar">
+                                        <div class="icon">📁</div>
+                                        <div class="icon">🔍</div>
+                                        <div class="icon">🔧</div>
+                                        <div class="icon">🐞</div>
+                                        <div class="icon">⬆️</div>
+                                    </aside>
+
+                                    <!-- Explorer + Editor -->
+                                    <div class="workspace">
+                                        <div class="explorer">
+                                            <h4>EXPLORER</h4>
+                                            <ul>
+                                                <li class="folder">📂 src
+                                                    <ul>
+                                                        <li class="file">-> 📄 index.js</li>
+                                                        <li class="file">-> 📄 app.js</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="file">📄 package.json</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="editor">
+                                            <div class="tab-bar">
+                                                <div class="tab active">index.js</div>
+                                                <div class="tab">app.js</div>
+                                            </div>
+                                            <div class="editor-content">
+                                                <pre>
+ <span style="color:gray;">1</span> <span style="color:#6a9955">// index.js</span>
+ <span style="color:gray;">2</span>     <span style="color:#9cdcfe">console</span>.log(<span style="color:#ce9178">'Hello, world!'</span>);
+ <span style="color:gray;">3</span> 
+                     </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status Bar -->
+                                <div class="status-bar">
+                                    <span>Ln 1, Col 1</span>
+                                    <span>Spaces: 2</span>
+                                    <span>UTF-8</span>
+                                    <span>JavaScript</span>
+                                </div>
+                            </section>
+
+                            <!-- Netflix App Window -->
+                            <section id="netflixApp" class="netflix-app halfscreen hiden">
+                                <div class="title-bar draggable">
+                                    <span>Netflix</span>
+                                    <div class="window-controls  ">
+                                        <span class="hoversquare">
+                                            <span class="netflix-height  ">◻</span>
+                                            <div class="snap-layout">
+                                                <div class="layout ">
+                                                    <div class="cell selected"></div>
+                                                    <div class="cell"></div>
+                                                    <div class="cell"></div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span>🗕</span>
+                                        <span id="closeWindow" class="closenetflix">✕</span>
+                                    </div>
+                                </div>
+                                <div class="app-content">
+                                    <h2>Welcome to Netflix</h2>
+                                    <p>This is your Netflix app UI mockup.</p>
+                                    <img src="https://plus.unsplash.com/premium_photo-1683740128021-effcc3f70ef9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D"
+                                        alt="Netflix Mockup">
+                                </div>
+
+
+
+                            </section>
+                            <section class="file-explorer-app hiden">
+                                <div class="title-bar draggable">
+                                    <span>File Explorer</span>
+                                    <div class="window-controls">
+                                        <span class="minimize">—</span>
+                                        <span class="hoversquare">
+                                            <span class="netflix-height  ">◻</span>
+                                            <div class="snap-layout">
+                                                <div class="layout ">
+                                                    <div class="cell selected"></div>
+                                                    <div class="cell"></div>
+                                                    <div class="cell"></div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="close">✕</span>
+                                    </div>
+                                </div>
+                                <div class="explorer-body">
+                                    <div class="sidebar">
+                                        <div class="icon">📁</div>
+                                        <div class="icon">📄</div>
+                                    </div>
+                                    <div class="workspace">
+                                        <div class="explorer">
+                                            <ul>
+                                                <li class="folder">
+                                                    <span class="folder-name">📁 Project</spa <ul class="sub-list">
+                                                <li>📄 index.html</li>
+                                                <li>📄 style.css</li>
+                                                <li>📄 script.js</li>
+                                            </ul>
+                                            </li>
+                                            <li>📄 README.md</li>
+                                            </ul>
+                                        </div>
+                                        <div class="editor">
+                                            <div class="editor-content">
+                                                <p>Select a file to view its content...</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -216,26 +393,28 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="chrome hiden">
-                            <div class="browser-window">
-                                <header class="top-bar">
-                                    <div class="tabs" id="tabs">
-                                        <div class="tab active" data-id="0">browse</div>
-                                        <div class="tab add-tab">+</div>
-
+                        <section class="context-menu">
+                            <ul>
+                                <li><i class="ri-gallery-view-2"></i></i> View</li>
+                                <li><i class="ri-sort-desc"></i>Sort by</li>
+                                <li class="Refresh"><i class="ri-reset-right-line"></i> Refresh</li>
+                                <li><i class="ri-keyboard-line"></i>Sortcuts</li>
+                                <hr>
+                                <li class="newcreate">
+                                    <span class="flex justify-between ">
+                                        <span><i class="ri-add-circle-line"></i> New</span>
+                                        <span class="click-tonew">&gt;</span>
+                                    </span>
+                                    <div class="newhidendiv">
+                                        <ul>
+                                            <li class="newfolder">Folder</li>
+                                            <li class="newnotes">Notes</li>
+                                        </ul>
                                     </div>
-                                    <div class="window-controls">
-                                        <span>◻</span>
-                                        <span>🗕</span>
-                                        <span id="closeWindow">✕</span>
-                                    </div>
-                                </header>
+                                </li>
 
-                                <main id="tabContentContainer">
-                                    <!-- Tab content gets added here -->
-                                </main>
-                            </div>
-
+                                <li><i class="ri-edit-2-line"></i> Personalize</li>
+                            </ul>
                         </section>
                     </div>
                     <!-- background: linear-gradient(to right, #f1f5f9, #ffe4e6, #c7d2fe); -->
@@ -249,12 +428,13 @@
                                     <span class="weather-badge">2</span>
                                 </div>
                                 <div class="weather-info">
-                                    <div class="weather-temp dark:text-white">--°C</div>
-                                    <div class="weather-condition dark:text-white-400">Loading...</div>
+                                    <div class="weather-temps dark:text-white">--°C</div>
+                                    <div class="weather-condition weather-conditions dark:text-white-400">Loading...
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- https://plus.unsplash.com/premium_photo-1683740128021-effcc3f70ef9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D -->
                         <!-- Start Menu + Pinned Icons -->
                         <div class="pinned-icons">
                             <!-- Start Menu Icon -->
@@ -315,7 +495,8 @@
                                     <i class="ri-volume-up-line"></i>
                                     <i class="ri-battery-fill"></i>
                                 </div>
-                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Wi-Fi / Volume / Battery</div>
+                                <div class="tooltip dark:bg-gray-800 dark:text-gray-100">Wi-Fi / Volume / Battery
+                                </div>
                             </div>
                             <div class="icon-group  clickshownnotification ">
                                 <div class="datetime dark:text-gray-200 ">
@@ -415,7 +596,7 @@
                             <input type="range" class="brightness-controll" />
                         </div>
                         <div class="info-row">
-                            <div >
+                            <div>
                                 <i class="ri-battery-2-fill"></i>
                                 <span>76%</span>
                             </div>
@@ -706,18 +887,7 @@
             </div>
 
         </section>
-        <section class="context-menu">
-            <ul>
-                <li><i class="ri-gallery-view-2"></i></i> View</li>
-                <li><i class="ri-sort-desc"></i>Sort by</li>
-                <li class="Refresh"><i class="ri-reset-right-line"></i> Refresh</li>
-                <li><i class="ri-keyboard-line"></i>Sortcuts</li>
-                <hr>
-                <li><i class="ri-add-circle-line"></i>New</li>
-                <li><i class="ri-tools-fill"></i> settings</li>
-                <li><i class="ri-edit-2-line"></i> Personalize</li>
-            </ul>
-        </section>
+
 
 
 

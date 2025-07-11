@@ -11,6 +11,76 @@ body {
   font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
 }
 
+.lock-screen {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1920&q=80') no-repeat center center/cover;
+}
+
+.lock-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+  
+}
+
+.lock-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.lock-time {
+  font-size: 80px;
+  font-weight: 100;
+}
+
+.lock-date {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.password-input {
+  margin-top: 40px;
+  color:#000;
+}
+
+.password-input input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9999px;
+  border-bottom: 5px solid blue;
+  font-size: 18px;
+  outline: none;
+}
+
+.unlock-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.unlock-btn:hover {
+  background: #1e40af;
+}
+
+.homescreen {
+  /* display: none; */
+}
+
 .desktop {
   width: 100vw;
   /* w-screen */
@@ -25,6 +95,7 @@ body {
   background-position: center;
   /* bg-center */
   background-color: black;
+  overflow: hidden;
   /* fallback for dark mode, see below */
 }
 
@@ -65,14 +136,11 @@ body {
   display: block;
 }
 
-.group img:active {
-  scale: 0.2;
-}
+
 
 .group img:hover {
   border: 2px solid transparent;
   background-color: rgba(247, 243, 243, 0.4);
-  padding: 9px;
 }
 
 .group div:last-child {
@@ -623,21 +691,9 @@ input:checked+.toggle-track .toggle-thumb {
   background: #2563eb;
 }
 
-
-
-.chromefulmode {
-  width: 100%;
-  height: 92%;
-  position: absolute;
-  top: 0;
-}
-
-
-
 .chrome {
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -648,14 +704,10 @@ input:checked+.toggle-track .toggle-thumb {
 .browser-window {
   background: #2f4f4f;
   border-radius: 8px;
-  overflow: hidden;
-  width: 90%;
-  max-width: 900px;
-  height: 80vh;
+  min-height: 100px;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
-  display: none;
-
 }
 
 .top-bar {
@@ -669,6 +721,7 @@ input:checked+.toggle-track .toggle-thumb {
 .tabs {
   display: flex;
   gap: 8px;
+  overflow-x: scroll;
 }
 
 .tab {
@@ -682,9 +735,47 @@ input:checked+.toggle-track .toggle-thumb {
   background: #1f2f2f;
 }
 
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .window-controls span {
-  margin-left: 12px;
   cursor: pointer;
+  position: relative;
+}
+
+.snap-layout {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.hoversquare:hover .snap-layout {
+  display: block;
+}
+
+.layout {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border: 1px solid #999;
+  background: #eee;
+}
+
+.cell.selected {
+  background: #0078d7;
 }
 
 #tabContentContainer {
@@ -739,7 +830,6 @@ iframe {
   scale: 0.98;
 }
 
-
 .context-menu {
   position: absolute;
   display: none;
@@ -771,9 +861,32 @@ iframe {
   background: #e5f3ff;
 }
 
-.context-menu li i {
-  width: 16px;
-  text-align: center;
+
+
+
+
+.context-menu li {
+  position: relative;
+  /* parent should be relative */
+}
+
+.newhidendiv {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 0.25rem;
+  display: none;
+  /* hidden by default */
+}
+
+.newhidendiv li {
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  padding: 20px 30px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -787,6 +900,7 @@ iframe {
     transform: scale(1);
   }
 }
+
 
 /* full clock */
 
@@ -802,6 +916,8 @@ iframe {
 }
 
 .fullscreen {
+  top: 0;
+  left: 0;
   width: 100%;
   height: 92%;
 }
@@ -811,9 +927,7 @@ iframe {
   height: 50%;
 }
 
-.hiden {
-  display: none;
-}
+
 
 body.dark .focus-ui {
   color: #e5e7eb;
@@ -1203,40 +1317,6 @@ body.dark .task-btn:hover {
 }
 
 /* for the snap layout in maximiz the screen */
-.snap-layout {
-  /* background-color: linear-gradient(to bottom, #e0e0e0, #f0f0f0); */
-  background-color: #0078d7;
-  border-radius: 8px;
-  position: absolute;
-  right: 20px;
-  padding: 12px;
-  width: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  opacity: 0;
-}
-
-.layout {
-  background: #ccc;
-  height: 30px;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.layout {
-  background-color: linear-gradient(to bottom, #e0e0e0, #f0f0f0);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-.hoversquare:hover {
-  .snap-layout {
-    opacity: 1;
-  }
-}
-
-
 
 /* pannels */
 /* ✅ Container */
@@ -1691,7 +1771,6 @@ hr {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-size: 0.875rem;
-  /* text-sm */
   text-align: center;
   gap: 0.25rem;
 }
@@ -1701,9 +1780,7 @@ hr {
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-  /* gap-2 */
   padding-top: 0.5rem;
-  /* pt-2 */
 }
 
 .shownnotification .focus-controls .timer {
@@ -1753,4 +1830,290 @@ hr {
 .claendar {
   padding-bottom: 10px;
 
+}
+
+
+/* Netflix App UI */
+.netflix-app {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #141414;
+  border: 2px solid #e50914;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Title Bar */
+.netflix-app .title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e50914;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.netflix-app .title-bar .window-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.netflix-app .title-bar span {
+  cursor: pointer;
+}
+
+.netflix-app .app-content {
+  padding: 1rem;
+}
+
+.netflix-app img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.vscode-app {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 800px;
+  height: 500px;
+  background: #1e1e1e;
+  color: #ccc;
+  border: 2px solid #007acc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Consolas, monospace;
+}
+
+.vscode-app .title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007acc;
+  color: white;
+  padding: 6px 12px;
+}
+
+.vscode-app .window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.vscode-body {
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  background: #252526;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.sidebar .icon {
+  color: #ccc;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+}
+
+.explorer {
+  background: #333333;
+  width: 200px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.explorer ul {
+  list-style: none;
+  padding-left: 12px;
+}
+
+.explorer li {
+  margin: 4px 0;
+}
+
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-bar {
+  background: #1e1e1e;
+  display: flex;
+}
+
+.tab {
+  padding: 6px 12px;
+  background: #2d2d2d;
+  border-right: 1px solid #444;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #1e1e1e;
+  border-bottom: 2px solid #007acc;
+}
+
+.editor-content {
+  flex: 1;
+  background: #1e1e1e;
+  padding: 16px;
+  overflow: auto;
+}
+
+.status-bar {
+  background: #007acc;
+  color: white;
+  padding: 4px 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+
+
+
+.snap-layout {
+  background-color: linear-gradient(to bottom, #e0e0e0, #f0f0f0);
+  border-radius: 8px;
+  position: absolute;
+  right: 20px;
+  padding: 12px;
+  width: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  opacity: 0;
+}
+
+.layout {
+  background: #ccc;
+  height: 30px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.layout {
+  background-color: linear-gradient(to bottom, #e0e0e0, #f0f0f0);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.hoversquare:hover {
+  .snap-layout {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+.file-explorer-app {
+  width: 700px;
+  height: 400px;
+  background: #1e1e1e;
+  border: 2px solid #007acc;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.title-bar {
+  background: orange;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  font-weight: bold;
+}
+
+.window-controls span {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.explorer-body {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 40px;
+  background: #252526;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.sidebar .icon {
+  color: #ccc;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+}
+
+.explorer {
+  width: 200px;
+  background: #333333;
+  color: #ccc;
+  padding: 12px;
+}
+
+.explorer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.explorer li {
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.folder .sub-list {
+  margin-left: 16px;
+
+}
+
+.folder.open .sub-list {
+  display: block;
+}
+
+.folder-name {
+  font-weight: bold;
+}
+
+.editor {
+  flex: 1;
+  background: #1e1e1e;
+  color: #ccc;
+  padding: 16px;
+}
+.hiden {
+  display: none;
 }

@@ -889,6 +889,7 @@ function maximizebuttonclick(elem, flag) {
 let iswindow = false
 let isnetflix = false
 let ischome = false
+// let isnotes = false
 maximizeBtn.addEventListener('click', () => {
     maximizebuttonclick(focusUI, iswindow)
     iswindow = !iswindow
@@ -902,7 +903,8 @@ document.querySelector('.chromesquare').addEventListener('click', () => {
     maximizebuttonclick(chromes, ischome)
     maximizebuttonclick(browserwindow, ischome)
     ischome = !ischome
-})
+})//
+
 
 document.querySelector(".vscode-close").addEventListener('click', () => {
     document.querySelector('.vscode-app').classList.add('hiden')
@@ -917,6 +919,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const clockIcon = document.getElementById('clockid');
     const netflixid = document.getElementById('netflixid');
     const fileid = document.querySelector('#fileid')
+    const notesapp = document.querySelector('.notes-app')
+
 
     chromeIcon.addEventListener('dblclick', () => {
         document.querySelector('.chrome').classList.remove('hiden')
@@ -932,15 +936,17 @@ document.addEventListener('DOMContentLoaded', () => {
     netflixid.addEventListener('dblclick', () => {
         document.querySelector('.netflix-app').classList.remove('hiden')
     })
-    fileid.addEventListener('dblclick' , ()=>{
+    fileid.addEventListener('dblclick', () => {
         document.querySelector('.file-explorer-app').classList.remove('hiden')
     })
-
+    document.querySelector('#notesid').addEventListener('dblclick' , ()=>{
+        notesapp.classList.remove('hiden')
+    })
 });
 
 document.querySelectorAll('.snap-layout .cell').forEach(cell => {
     cell.addEventListener('click', () => {
-        const windowEl = cell.closest('.focus-ui, .chrome, .netflix-app  , .vscode-app , .file-explorer-app');
+        const windowEl = cell.closest('.focus-ui, .chrome, .netflix-app  , .vscode-app , .file-explorer-app , .notes-app');
         if (!windowEl) return;
 
         const index = Array.from(cell.parentNode.children).indexOf(cell);
@@ -970,7 +976,7 @@ document.querySelectorAll('.snap-layout .cell').forEach(cell => {
 document.querySelectorAll('.draggable').forEach(bar => {
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
-    const windowEl = bar.closest('.focus-ui, .chrome, .netflix-app , .vscode-app , .file-explorer-app');
+    const windowEl = bar.closest('.focus-ui, .chrome, .netflix-app , .vscode-app , .file-explorer-app , .notes-app');
 
     bar.addEventListener('mousedown', e => {
         isDragging = true;
@@ -1016,3 +1022,114 @@ newHiddenDiv.addEventListener('mouseleave', () => {
 newHiddenDiv.addEventListener('mouseenter', () => {
     newHiddenDiv.style.display = 'block';
 });
+
+
+// fullmode minimize-screen
+document.querySelectorAll('.closecoss').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Find the parent app window and hide it
+        btn.closest('.app-window').classList.add('hiden')
+    });
+});
+document.querySelectorAll('.minimize-screen').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Find the parent app window and hide it
+        btn.closest('.app-window').classList.add('hiden')
+    });
+});
+const textarea = document.querySelector('.notes-body .notes-textarea');
+const saveBtn = document.querySelector('.save-notes-btn');
+
+
+const savedContent = localStorage.getItem('notes');
+if (savedContent) {
+    textarea.value = savedContent;
+}
+
+
+let textContent = 'Write to here';
+
+textarea.addEventListener('input', (e) => {
+    textContent = e.target.value;
+});
+
+saveBtn.addEventListener('click', () => {
+    localStorage.setItem('notes', textContent);
+    alert('Notes saved!');
+});
+
+
+const desktops = document.querySelector('.desktop .icon'); 
+const explorerApp = document.querySelector('.file-explorer-app');
+const notesApp = document.querySelector('.notes-app');
+
+let folderCount = 1;
+let noteCount = 1;
+
+// ✅ NEW FOLDER
+document.querySelector('.newfolder').addEventListener('click', () => {
+  const folder = document.createElement('div');
+  folder.className = 'group';
+  folder.innerHTML = `
+    <img class="h-10 mx-auto cursor-pointer" src="icons8-file-explorer-new-48.png" alt="Folder" />
+    <div class="headdings">New Folder </div>
+    <div >New Folder </div>
+  `;
+  desktops.appendChild(folder);
+
+  // Double click to open Explorer
+  folder.addEventListener('dblclick', () => {
+    explorerApp.classList.remove('hiden');
+  });
+
+  folderCount++;
+});
+
+// ✅ NEW NOTE
+document.querySelector('.newnotes').addEventListener('click', () => {
+  const note = document.createElement('div');
+  note.className = 'group';
+  note.innerHTML = `
+    <img class="h-10 mx-auto cursor-pointer" src="icons8-notes-48.png" alt="Note" />
+    <div class="headdings">Note new</div>
+    <div >Note new</div>
+  `;
+  desktops.appendChild(note);
+
+  // Double click to open Notes app
+  note.addEventListener('dblclick', () => {
+    notesApp.classList.remove('hiden');
+  });
+
+  noteCount++;
+});
+
+// ✅ CLOSE BUTTONS
+document.querySelectorAll('.closecoss').forEach(closeBtn => {
+  closeBtn.addEventListener('click', () => {
+    closeBtn.closest('.app-window').classList.add('hiden');
+  });
+});
+
+
+// JS
+const wallpapers = [
+  "aneesh-matcha-ug0M3sLBgMM-unsplash.jpg",
+  "MEET PEOPLE.jpg",
+  "download (2).jpg",
+  "download (1).jpg"
+];
+
+const randomBtn = document.querySelector('.random-wallpaper-btn');
+
+
+randomBtn.addEventListener('click', () => {
+  const randomIndex = Math.floor(Math.random() * wallpapers.length);
+  const randomWallpaper = wallpapers[randomIndex];
+  desktop.style.backgroundImage = `url('${randomWallpaper}')`;
+  desktop.style.backgroundSize = 'cover';
+  desktop.style.backgroundPosition = 'center';
+});
+
+
+
